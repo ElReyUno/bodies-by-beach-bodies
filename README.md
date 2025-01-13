@@ -10,6 +10,7 @@ This document outlines the development details for Bodies By Beach Bodies follow
     *  [Development and Build Tools](#development-and-build-tools)
     *  [Development Environment](#development-environment)
     *  [Wireframing and Design Tools](#wireframing-and-design-tools)
+*  [Design Documentation](#design-documentation)
 *   [Project Structure](#project-structure)
     * [HTML Components](#html-components)
     *   [Application Shell](#application-shell)
@@ -76,11 +77,11 @@ This section outlines the planning and design documentation that has been used f
 
 ### Visual Aids
 
-*   **Flowchart:**          [Website Layout Design Hierarchical Flowchart](./docs/img/Flowchart.png)
+*   **Flowchart:** [Website Layout Design Hierarchical Flowchart](./docs/img/flowchart_wireframes/Flowchart.png)
 *   **Wireframes:**
-    *   **Cell Phone:**     [Website Cell Phone Layout Design](./docs/img/Cell.png)
-    *   **Tablet:**         [Website Tablet Layout Design](./docs/img/Tablet.png)
-    *   **Desktop:**        [Website Desktop Layout Design](./docs/img/Desktop.png)
+    *   **Cell Phone:** [Website Cell Phone Layout Design](./docs/img/flowchart_wireframes/Cell.png)
+    *   **Tablet:** [Website Tablet Layout Design](./docs/img/flowchart_wireframes/Tablet.png)
+    *   **Desktop:** [Website Desktop Layout Design](./docs/flowchart_wireframes/img/Desktop.png)
 
 ## Project Structure
 

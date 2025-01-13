@@ -81,3 +81,4 @@ config.js
 config.yaml
 private.key
 private.pem
+*storybook.log
