@@ -1,0 +1,83 @@
+# Node.js and npm/yarn/pnpm
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+
+# Build output
+dist
+build
+out
+.next
+.nuxt
+.cache
+.parcel-cache
+
+# IDEs and Editors
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+*.tmproj
+.history
+
+# OS and System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+._*
+*.bak
+*.log
+*.orig
+
+# Env files
+.env
+.env.*
+.env.local
+*.pem
+*venv/
+
+# Test files, reports and coverage
+coverage
+junit.xml
+*.test.js.snap
+*.test.jsx.snap
+*.spec.js.snap
+*.spec.jsx.snap
+
+# Temporary files
+*~
+*.tmp
+*.swp
+*.log
+.npm
+.sass-cache
+*.sublime-workspace
+
+# Optional documentation files
+*.pdf
+*.doc
+*.docx
+
+# OS generated files
+.AppleDouble
+
+# Dependency management tools
+/bower_components
+/jspm_packages
+
+# Other files
+.DS_Store?
+config.js
+config.yaml
+private.key
+private.pem
