@@ -1,38 +1,52 @@
 {
-  "name": "bodies-by-beach-bodies",
-  "version": "1.0.0",
-  "description": "This document outlines the development details for Bodies By Beach Bodies following best practices for a Single-Page Application (SPA) built with a modern JavaScript tool stack.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ElReyUno/bodies-by-beach-bodies.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ElReyUno/bodies-by-beach-bodies/issues"
-  },
-  "homepage": "https://github.com/ElReyUno/bodies-by-beach-bodies#readme",
-  "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.3",
-    "@storybook/addon-essentials": "^8.4.7",
-    "@storybook/addon-interactions": "^8.4.7",
-    "@storybook/addon-onboarding": "^8.4.7",
-    "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
-    "@storybook/blocks": "^8.4.7",
-    "@storybook/react": "^8.4.7",
-    "@storybook/react-webpack5": "^8.4.7",
-    "@storybook/test": "^8.4.7",
-    "prop-types": "^15.8.1",
-    "storybook": "^8.4.7"
-  }
+    "name": "bodies-by-beach-bodies",
+    "version": "1.0.0",
+    "description": "This document outlines the development details for Bodies By Beach Bodies following best practices for a Single-Page Application (SPA) built with a modern JavaScript tool stack.",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "jest",
+        "test:unit": "jest src/pages/__tests__/index.test.jsx",
+        "test:e2e": "cypress run",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ElReyUno/bodies-by-beach-bodies.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ElReyUno/bodies-by-beach-bodies/issues"
+    },
+    "homepage": "https://github.com/ElReyUno/bodies-by-beach-bodies#readme",
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@babel/preset-react": "^7.26.3",
+        "@chromatic-com/storybook": "^3.2.3",
+        "@storybook/addon-essentials": "^8.4.7",
+        "@storybook/addon-interactions": "^8.4.7",
+        "@storybook/addon-onboarding": "^8.4.7",
+        "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
+        "@storybook/blocks": "^8.4.7",
+        "@storybook/react": "^8.4.7",
+        "@storybook/react-webpack5": "^8.4.7",
+        "@storybook/test": "^8.4.7",
+        "@testing-library/react": "^16.1.0",
+        "cypress": "^13.17.0",
+        "ignore-loader": "^0.1.2",
+        "prop-types": "^15.8.1",
+        "storybook": "^8.4.7"
+    },
+    "dependencies": {
+        "next": "^15.1.4"
+    }
 }

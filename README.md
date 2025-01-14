@@ -39,17 +39,19 @@ This project is a single-page application designed for a personal trainer at `Bo
 ### Core Technologies
 
 *   **Front-End Framework:**
-    *   **React with Next.js** (Recommended) *or* **Vue.js with Nuxt.js**
+    *   **React with Next.js**
         *   For building the user interface with server-side rendering (SSR) and static site generation (SSG).
 *   **Styling:**
-    *   **Tailwind CSS** (Recommended) *or* Styled Components, CSS Modules.
+    *   **Tailwind CSS**
         *   For modern, responsive, and customizable styling.
 *   **Version Control:**
     *   **Git** with **GitHub**
         *   For managing code changes, collaboration, and project history.
 *   **Testing:**
-    *   **Jest** (If using React) or **Vitest** (If using Vue) for unit and integration testing.
-    *   **Cypress** for end-to-end testing.
+    * **Browser Testing:** Manually test site in different browsers and viewport sizes.
+    * **Cypress:** For end-to-end testing.
+    *  **Jest** For unit and integration testing.
+    * **Postman:** To test any back-end API endpoints.
 
 ### Development and Build Tools
 
@@ -57,6 +59,9 @@ This project is a single-page application designed for a personal trainer at `Bo
     *   For package management and running JavaScript tools.
 *   **VS Code (Visual Studio Code):**
     *   Code editor with robust features and extensive extensions.
+*   * **Bundler**
+   *   Webpack (if using React, Next.js does it for you) or Vite (if using Vue, Nuxt.js does it for you).
+   *   To bundle all of the javascript files into an optimized file.
 *  **Storybook:**
      *  Used for UI component development, testing, and documentation.
      *   To install use `npx sb init --type react` (if using React with Next.js) or `npx sb init --type vue3` (if using Vue with Nuxt.js). When prompted to choose a bundler, choose **`webpack5`** if you are using React, or **`vite`** if you are using Vue.
@@ -66,7 +71,7 @@ This project is a single-page application designed for a personal trainer at `Bo
 *    **Chrome DevTools:**
         *   Used to debug and inspect your website in the browser.
 *   **CI/CD:**
-    *   **Vercel** or **Netlify:** (Recommended) for Next.js and Nuxt.js projects
+    *   **Vercel** and **Netlify** for Next.js and Nuxt.js projects.
     *   **GitHub Actions:** For continuous integration and deployment.
 
 ### Development Environment
@@ -100,13 +105,12 @@ This section outlines the planning and design documentation that has been used f
     *   **Desktop:** [Website Desktop Layout Design](./docs/flowchart_wireframes/img/Desktop.png)
 *   #### Mock-up Creation
      *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
-     *   Export your mock-ups into a set of `png` files for easy sharing.
-         *   [Link to Home Mockup](link-to-home-mockup.png)
-         *   [Link to Services Mockup](link-to-services-mockup.png)
-         *   [Link to About Mockup](link-to-about-mockup.png)
-         *   [Link to Contact Mockup](link-to-contact-mockup.png)
+     *   Export your mock-ups into a set of image files (i.e. `png`, `jpeg`) for easy sharing and conversion.
+         *   **Cell Phone Home:** [Link to Cell Phone Home Mockup](link-to-home-mockup.png)
+         *   **Tablet Home:** [Link to Tablet Home Mockup](link-to-services-mockup.png)
+         *   **Desktop Home:** [Link to Desktop Home Mockup](link-to-about-mockup.png)
 *   #### Creating a Mock-up with HTML
-     *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `png` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
+     *   Use HTML elements to create a mock-up of the UI structure using the wireframes and image files as a reference. This can help visualize the structure of the web site before diving deep into the components.
          *   Use the HTML elements listed below under the "HTML Components" section to create the structure.
 
 ## Project Structure
@@ -222,8 +226,8 @@ Components will be built using re-usable UI elements:
     *   Implement mobile-first design with responsive layouts.
     *   Use Tailwind CSS, Styled Components, or CSS modules for styling.
 8.   **Testing:**
-    *   Write unit and integration tests for all core components and functionality using Jest or Vitest.
-    *   Implement end-to-end tests with Cypress.
+    *   Write unit and integration tests for all core components and functionality using Jest. To run all unit tests, use the command `npm run test` or `yarn test` or `pnpm test`. To run a specific test file use `npm run test:unit` or `yarn test:unit` or `pnpm test:unit`.
+    *   Implement end-to-end tests with Cypress. To run cypress in interactive mode use `npx cypress open`, or `yarn cypress open`. To run cypress tests in headless mode use the command `npm run test:e2e`, or `yarn test:e2e` or `pnpm test:e2e`.
 9.  **Code Management:**
     *   Use Git and GitHub for version control.
     *   Follow best practices for branching and code commits.

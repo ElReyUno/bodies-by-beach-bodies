@@ -82,3 +82,13 @@ config.yaml
 private.key
 private.pem
 *storybook.log
+
+# Cypress output
+cypress/videos/
+cypress/screenshots/
+
+# Storybook build output
+.storybook-static/
+
+# Babel cache
+.babelrc.cache
