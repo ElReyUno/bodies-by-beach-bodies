@@ -99,17 +99,17 @@ This section outlines the planning and design documentation that has been used f
 
 *   #### Flowchart
 
-     *   [Website Layout Design Hierarchical Flowchart](./docs/img/flowchart_wireframes/Flowchart.webp)
+     *   ![Website Layout Design Hierarchical Flowchart](./docs/img/flowchart_wireframes/Flowchart.webp)
 *   #### Wireframes
-    *   **Cell Phone:** [Website Cell Phone Layout Design](./docs/img/flowchart_wireframes/Cell.webp)
-    *   **Tablet:** [Website Tablet Layout Design](./docs/img/flowchart_wireframes/Tablet.webp)
-    *   **Desktop:** [Website Desktop Layout Design](./docs/img/flowchart_wireframes/Desktop.webp)
+    *   **Cell Phone:** ![Website Cell Phone Layout Design](./docs/img/flowchart_wireframes/Cell.webp)
+    *   **Tablet:** ![Website Tablet Layout Design](./docs/img/flowchart_wireframes/Tablet.webp)
+    *   **Desktop:** ![Website Desktop Layout Design](./docs/img/flowchart_wireframes/Desktop.webp)
 *   #### Mock-Up Creation
      *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
      *   Export your mock-ups into a set of image files (i.e. `png`, `jpeg`) for easy sharing and conversion.
-         *   **Cell Phone Home:** [Website Cell Phone Home Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
-         *   **Tablet Home:** [Website Tablet Home Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
-         *   **Desktop Home:** [Website Desktop Home Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
+         *   **Cell Phone Home:** ![Website Cell Phone Home Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
+         *   **Tablet Home:** ![Website Tablet Home Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
+         *   **Desktop Home:** ![Website Desktop Home Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
 *   #### Creating a Mock-Up with HTML
      *   Use HTML elements to create a mock-up of the UI structure using the wireframes and image files as a reference. This can help visualize the structure of the web site before diving deep into the components.
          *   Use the HTML elements listed below under the "HTML Components" section to create the structure.
@@ -175,7 +175,7 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 The following will be loaded within the `<main>` element of the SPA.
 
 *   `Home Component` (`/` or `/home`): Main landing page.
-*   `About Component` (`/about`): Information about Wayne Bashay, the company, and their partnership.
+*   `About Component` (`/about`): Information about Personal Trainer, the company, and their partnership.
 *   `Contact Component` (`/contact`): Contact form and contact information.
 *   `Services Component` (`/services`): A list of all services
     *   `Fitness Sub-Component` (`/services/fitness`):
@@ -213,10 +213,10 @@ Components will be built using re-usable UI elements:
     *   Use Figma for detailed, collaborative wireframes.
 4.  **Mock-up Creation:**
     *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
-    *   Export your mock-ups into a set of `png` files for easy sharing.
-        *   [Link to Cell Phone Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
-        *   [Link to Tablet Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
-        *   [Link to Desktop Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
+    *   Export your mock-ups.
+        *   ![Link to Cell Phone Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
+        *   ![Link to Tablet Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
+        *   ![Link to Desktop Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
 5.  **Creating a Mock-up with HTML:**
     *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `png` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
     *   Use the HTML elements listed above under the "HTML Components" section to create the structure.

@@ -1,0 +1,201 @@
+/* Tailwind Directives */
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* Base styles (mobile-first) */
+@layer components {
+  .container {
+    @apply flex flex-col items-center p-4;
+  }
+
+  .heading {
+    @apply text-2xl font-bold text-center mb-4;
+  }
+
+  .button {
+    @apply mt-4 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer text-sm;
+  }
+
+  .button:hover {
+    @apply bg-blue-700;
+  }
+
+  .hamburger {
+    @apply block cursor-pointer text-2xl;
+  }
+
+  /* Navbar Base Styles */
+  .nav-container {
+    /* Base styles */
+    @apply w-full mx-auto px-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    height: 60px;
+    /* Base height for small screens */
+    max-width: 100%;    /* Max width for larger screens */
+  }
+
+  .navbar {
+    @apply flex-col items-center justify-center absolute left-0 right-0 bg-white shadow-md p-4 z-10;
+    top: 100%;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0; /* Initially hide the menu */
+    overflow: hidden; /* Hide overflowing content for transition to work */
+  }
+
+  .navbar.active {
+    @apply flex; /* Show menu if active */
+    max-height: 500px; /* Show the content inside */
+  }
+
+  .navbar a {
+    @apply py-3 px-4 text-black no-underline block;
+    min-height: 44px;
+  }
+
+  .navbar ul {
+    @apply list-none p-0;
+  }
+
+  .navbar li {
+    @apply mr-2;
+  }
+
+  .navLink {
+    @apply no-underline text-gray-700 px-1;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .navLink:hover {
+    @apply underline;
+    background-color: #f3f4f6;
+    border-radius: 0.375rem;
+  }
+}
+
+.logo-container > img {
+  max-height: 40px;
+  max-width: 150px;
+}
+
+/* Main Body Base Styles */
+html,
+body {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 80px);
+  padding: 10px;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+/* Styles for larger screens (desktop, tablets) */
+@media (min-width: 640px) {
+  @layer components {
+    .nav-container {
+      @apply px-6;
+      max-width: 640px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @layer components {
+    .heading {
+      @apply text-3xl;
+      /* Increase heading size */
+    }
+
+    .button {
+      @apply text-base;
+      /* Increase button text size */
+    }
+
+    .hamburger {
+      @apply hidden; /* hide hamburger on larger screens */
+    }
+
+    .navbar {
+      @apply flex flex-row items-center justify-start relative top-0 shadow-none p-0; /* remove absolute positioning and set flex-row */
+    }
+
+    .navbar ul {
+      @apply flex-row; /* Show items in a row */
+    }
+
+    .navbar li {
+      @apply mr-2; /* Spacing between menu items */
+    }
+
+    .navbar a {
+      @apply text-black; /* Text colour */
+      max-height: none; /* Make it always visible */
+    }
+
+    .navbar.active {
+      @apply flex flex-row; /* Force menu items to be row format */
+    }
+
+    .nav-container {
+      height: 80px; /* Increase height on larger screens */
+      padding: 0.5rem 2rem; /* More padding on large screens */
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @layer components {
+    .nav-container {
+      @apply px-8;
+      max-width: 1024px;
+      height: 80px; /* Increase height on larger screens */
+      padding: 0.5rem 2rem; /* More padding on large screens */
+    }
+  }
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  @layer components {
+    .navbar {
+      @apply w-full bg-white border-t border-gray-300 z-10;
+      top: 100%;
+    }
+
+    .navbar.active {
+      @apply flex; /* Show when toggled on*/
+    }
+
+    .navbar ul {
+      @apply flex-col items-center;
+    }
+
+    .navbar li {
+      @apply mb-2;
+    }
+
+    .hamburger {
+      @apply inline-block self-end pr-4;
+    }
+  }
+}
