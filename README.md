@@ -15,7 +15,7 @@ This document outlines the development details for Bodies By Beach Bodies follow
     *   [Visual Aids](#visual-aids)
         *   [Flowchart](#flowchart)
         *   [Wireframes](#wireframes)
-    *   [Mock-up Creation](#mock-up-creation)
+    *   [Mock-Up Creation](#mock-up-creation)
         *   [Creating a Mock-up with HTML](#creating-a-mock-up-with-html)
 *   [Project Structure](#project-structure)
     *   [HTML Components](#html-components)
@@ -48,10 +48,10 @@ This project is a single-page application designed for a personal trainer at `Bo
     *   **Git** with **GitHub**
         *   For managing code changes, collaboration, and project history.
 *   **Testing:**
-    * **Browser Testing:** Manually test site in different browsers and viewport sizes.
-    * **Cypress:** For end-to-end testing.
-    *  **Jest** For unit and integration testing.
-    * **Postman:** To test any back-end API endpoints.
+    *   **Browser Testing:** Manually test site in different browsers and viewport sizes.
+    *   **Cypress:** For end-to-end testing.
+    *   **Jest** For unit and integration testing.
+    *   **Postman:** To test any back-end API endpoints.
 
 ### Development and Build Tools
 
@@ -59,16 +59,17 @@ This project is a single-page application designed for a personal trainer at `Bo
     *   For package management and running JavaScript tools.
 *   **VS Code (Visual Studio Code):**
     *   Code editor with robust features and extensive extensions.
-*   * **Bundler**
-   *   Webpack (if using React, Next.js does it for you) or Vite (if using Vue, Nuxt.js does it for you).
-   *   To bundle all of the javascript files into an optimized file.
-*  **Storybook:**
+*   **Bundler:**
+    *   **Webpack 5** (used internally by Next.js for React projects) *or* **Vite** (used internally by Nuxt.js for Vue projects).
+    *   These tools bundle all JavaScript files into optimized files for the application.
+*   **Storybook:**
      *  Used for UI component development, testing, and documentation.
      *   To install use `npx sb init --type react` (if using React with Next.js) or `npx sb init --type vue3` (if using Vue with Nuxt.js). When prompted to choose a bundler, choose **`webpack5`** if you are using React, or **`vite`** if you are using Vue.
-*   **Bundler:**
-        *  **Webpack 5** (used by Next.js internally) *or* **Vite** (used by Nuxt.js internally).
-         * Used to bundle all of the JavaScript files into optimized files for the application.
-*    **Chrome DevTools:**
+*   **Babel:**
+    *   Used to transpile modern JavaScript into backward-compatible code, allowing you to use the latest features.
+*   **Gwak**
+    * A utility to aid in data fetching and state management.
+*   **Chrome DevTools:**
         *   Used to debug and inspect your website in the browser.
 *   **CI/CD:**
     *   **Vercel** and **Netlify** for Next.js and Nuxt.js projects.
@@ -83,11 +84,11 @@ This project is a single-page application designed for a personal trainer at `Bo
 
 *   **wireframe.cc:** Initial quick wireframing tool.
 *   **Figma:** For detailed wireframes and UI design.
-*  **Canva:** For creating mockups, social media graphics, and other visual assets.
+*   **Canva:** For creating mockups, social media graphics, and other visual assets.
     *   **Image Formats:**
         *   **`.WEBP`**: As the primary image format for web.
         *   **`.PNG`**: For logos, icons, and images with sharp lines or transparency.
-        *  **`.SVG`**: For icons and simple illustrations.
+        *   **`.SVG`**: For icons and simple illustrations.
         *   **`.JPG`**: Use only when needed.
 
 ## Design Documentation
@@ -98,18 +99,18 @@ This section outlines the planning and design documentation that has been used f
 
 *   #### Flowchart
 
-     *   [Website Layout Design Hierarchical Flowchart](./docs/img/flowchart_wireframes/Flowchart.png)
+     *   [Website Layout Design Hierarchical Flowchart](./docs/img/flowchart_wireframes/Flowchart.webp)
 *   #### Wireframes
-    *   **Cell Phone:** [Website Cell Phone Layout Design](./docs/img/flowchart_wireframes/Cell.png)
-    *   **Tablet:** [Website Tablet Layout Design](./docs/img/flowchart_wireframes/Tablet.png)
-    *   **Desktop:** [Website Desktop Layout Design](./docs/flowchart_wireframes/img/Desktop.png)
-*   #### Mock-up Creation
+    *   **Cell Phone:** [Website Cell Phone Layout Design](./docs/img/flowchart_wireframes/Cell.webp)
+    *   **Tablet:** [Website Tablet Layout Design](./docs/img/flowchart_wireframes/Tablet.webp)
+    *   **Desktop:** [Website Desktop Layout Design](./docs/img/flowchart_wireframes/Desktop.webp)
+*   #### Mock-Up Creation
      *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
      *   Export your mock-ups into a set of image files (i.e. `png`, `jpeg`) for easy sharing and conversion.
-         *   **Cell Phone Home:** [Link to Cell Phone Home Mockup](link-to-home-mockup.png)
-         *   **Tablet Home:** [Link to Tablet Home Mockup](link-to-services-mockup.png)
-         *   **Desktop Home:** [Link to Desktop Home Mockup](link-to-about-mockup.png)
-*   #### Creating a Mock-up with HTML
+         *   **Cell Phone Home:** [Website Cell Phone Home Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
+         *   **Tablet Home:** [Website Tablet Home Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
+         *   **Desktop Home:** [Website Desktop Home Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
+*   #### Creating a Mock-Up with HTML
      *   Use HTML elements to create a mock-up of the UI structure using the wireframes and image files as a reference. This can help visualize the structure of the web site before diving deep into the components.
          *   Use the HTML elements listed below under the "HTML Components" section to create the structure.
 
@@ -160,6 +161,8 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
     *   Used to display media.
 *   `<div>`
     *   A general container element.
+    *   Document Object Model (DOM)
+        * The DOM is a programming interface for HTML and XML documents. It represents the page as a tree of nodes, where each node is an object representing a part of the document. You will be manipulating the DOM through your Javascript.
 
 ### Application Shell
 
@@ -202,7 +205,7 @@ Components will be built using re-usable UI elements:
     *   Set up WSL with Ubuntu (or other Linux distribution).
     *   Install all necessary dependencies.
     *   Install `cwebp` using `sudo apt install webp`.
-2.   **Image Optimization:**
+2.  **Image Optimization:**
     *   Create `.webp` versions of all your main images using an image optimization program or use a command like `cwebp input.jpg -o output.webp`.
         *   Make sure to also optimize the original image file and to scale down the resolution as needed.
 3.  **Wireframing:**
@@ -211,13 +214,12 @@ Components will be built using re-usable UI elements:
 4.  **Mock-up Creation:**
     *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
     *   Export your mock-ups into a set of `png` files for easy sharing.
-        *   [Link to Home Mockup](link-to-home-mockup.png)
-        *   [Link to Services Mockup](link-to-services-mockup.png)
-        *   [Link to About Mockup](link-to-about-mockup.png)
-        *   [Link to Contact Mockup](link-to-contact-mockup.png)
-5.   **Creating a Mock-up with HTML:**
-         *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `png` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
-         *   Use the HTML elements listed above under the "HTML Components" section to create the structure.
+        *   [Link to Cell Phone Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
+        *   [Link to Tablet Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
+        *   [Link to Desktop Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
+5.  **Creating a Mock-up with HTML:**
+    *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `png` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
+    *   Use the HTML elements listed above under the "HTML Components" section to create the structure.
 6.  **Component Development:**
     *   Use a component-based approach with reusable UI components.
     *   All components must be fully responsive and accessible.
@@ -225,15 +227,19 @@ Components will be built using re-usable UI elements:
 7.  **Styling:**
     *   Implement mobile-first design with responsive layouts.
     *   Use Tailwind CSS, Styled Components, or CSS modules for styling.
-8.   **Testing:**
+8.  **Testing:**
     *   Write unit and integration tests for all core components and functionality using Jest. To run all unit tests, use the command `npm run test` or `yarn test` or `pnpm test`. To run a specific test file use `npm run test:unit` or `yarn test:unit` or `pnpm test:unit`.
     *   Implement end-to-end tests with Cypress. To run cypress in interactive mode use `npx cypress open`, or `yarn cypress open`. To run cypress tests in headless mode use the command `npm run test:e2e`, or `yarn test:e2e` or `pnpm test:e2e`.
-9.  **Code Management:**
+9.  **Data Fetching and State Management:**
+    *    Use `Gwak` for data fetching and state management. This helps keep your components clean and organized.
+10. **Babel Transpilation:**
+    *   Babel automatically transpiles your modern JavaScript code into code that can be read by the majority of browsers. This is done automatically by your framework, or is a part of your build process.
+11. **Code Management:**
     *   Use Git and GitHub for version control.
     *   Follow best practices for branching and code commits.
-10.  **Continuous Integration/Deployment:**
+12. **Continuous Integration/Deployment:**
     *   Use GitHub Actions, Vercel, or Netlify for automatic build and deployment.
-11.  **Chrome DevTools:**
+13.  **Chrome DevTools:**
         *   Use Chrome DevTools (or equivalent for other browsers) to debug your CSS, test for responsive behavior, and to diagnose performance issues.
 
 ## Accessibility
@@ -268,10 +274,12 @@ Components will be built using re-usable UI elements:
 
 ## Getting Started
 
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 1.  Clone the repository
 
     ```bash
-    git clone [[your repository]](https://github.com/ElReyUno/bodies-by-beach-bodies.git)
+    git clone https://github.com/ElReyUno/bodies-by-beach-bodies.git
     ```
 
 2.  Install the dependencies with your package manager
@@ -288,12 +296,36 @@ Components will be built using re-usable UI elements:
 
     ```bash
     npm run dev
-    #or
+    # or
     yarn dev
-    #or
+    # or
     pnpm dev
+    # or
+    bun dev
     ```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+   You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+
+   This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+   ## Learn More
+
+   To learn more about Next.js, take a look at the following resources:
+
+   - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+   - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+   You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+   ## Deploy on Vercel
+
+   The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+   Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
 
 ---
 
-By following this guide, we will ensure a quality end result that is performant, accessible, and ready for future growth.
+Following this guide ensures a quality end result that is performant, accessible, and ready for future growth. User testing and continuous refinement are key to creating a great user experience.
