@@ -7,100 +7,107 @@
 
 /* Base styles (mobile-first) */
 @layer components {
+  /* Container for content */
   .container {
-    @apply flex flex-col items-center p-4;
+    @apply flex flex-col items-center p-4; /* Vertically align items and add padding */
   }
 
+  /* Generic heading */
   .heading {
-    @apply text-2xl font-bold text-center mb-4;
+    @apply text-2xl font-bold text-center mb-4; /* Large text, bold, centered, with bottom margin */
   }
 
+  /* Generic button */
   .button {
-    @apply mt-4 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer text-sm;
+    @apply mt-4 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer text-sm; /* Margin, padding, style, and small text */
   }
 
   .button:hover {
-    @apply bg-blue-700;
+    @apply bg-blue-700; /* Darker hover effect */
   }
 
+  /* Hamburger Menu Icon - Mobile specific styling */
   .hamburger {
     @apply block cursor-pointer text-2xl;
   }
 
-  /* Navbar Base Styles */
+  /* Navigation container */
   .nav-container {
-    /* Base styles */
-    @apply w-full mx-auto px-4;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    @apply w-full mx-auto px-4 flex items-center justify-between; /* 100% width, horizontal flex, items aligned, justify content for spacing */
+    height: 60px; /* Base height for small screens */
+    max-width: 100%; /* Max width to take full screen width */
     padding: 0.5rem 1rem;
-    height: 60px;
-    /* Base height for small screens */
-    max-width: 100%;    /* Max width for larger screens */
+    /* Note: 60px height is within recommended range for mobile touch targets*/
   }
 
+  /* Navbar Menu - Initially hidden on mobile */
   .navbar {
-    @apply flex-col items-center justify-center absolute left-0 right-0 bg-white shadow-md p-4 z-10;
-    top: 100%;
-    transition: max-height 0.3s ease-in-out;
+    @apply flex-col items-center justify-center bg-white shadow-md p-4 z-10; /* Vertical flex, center alignment, shadow and white background */
+    transition: all 0.3s ease-in-out; /* Smooth show/hide transition */
     max-height: 0; /* Initially hide the menu */
-    overflow: hidden; /* Hide overflowing content for transition to work */
+    overflow: hidden; /* Clip overflowing content */
   }
 
+  /* Active state for the navbar menu, mobile specific styles */
   .navbar.active {
-    @apply flex; /* Show menu if active */
-    max-height: 500px; /* Show the content inside */
+    max-height: 500px; /* Show the menu when active */
+    overflow: visible;
   }
 
+  /* Individual navigation link */
   .navbar a {
-    @apply py-3 px-4 text-black no-underline block;
-    min-height: 44px;
+    @apply py-3 px-4 text-black no-underline block; /* Padding, black text, block display for full width clicks */
+    min-height: 44px; /* min-height for touch target */
   }
 
+  /* List of navigation links */
   .navbar ul {
-    @apply list-none p-0;
+    @apply list-none p-0; /* Remove default list styling*/
   }
 
+  /* List Item in Navigation */
   .navbar li {
-    @apply mr-2;
+    @apply mr-2; /* right margin for spacing */
   }
 
+  /* Link Styles in Navigation */
   .navLink {
-    @apply no-underline text-gray-700 px-1;
-    display: block;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
+    @apply no-underline text-gray-700 px-1; /* Remove underline and set color */
+    display: block; /* Block display for full-width clickable area */
+    padding: 0.5rem 1rem; /* Spacing */
+    transition: all 0.3s ease; /* Smooth hover transitions */
   }
 
+  /* Link Hover Style in Navigation */
   .navLink:hover {
-    @apply underline;
+    @apply underline; /* underline hover effect */
     background-color: #f3f4f6;
-    border-radius: 0.375rem;
+    border-radius: 0.375rem; /* border radius hover effect */
   }
 }
-
+/* Logo container image style */
 .logo-container > img {
-  max-height: 40px;
-  max-width: 150px;
+  max-height: 40px; /* Max height for small logo */
+  max-width: 150px; /* Max width for small logo */
 }
 
 /* Main Body Base Styles */
 html,
 body {
-  min-height: 100vh;
-  overflow-y: auto;
+  min-height: 100vh; /* Ensure content takes up at least viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
+/* Container for body content */
 .image-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px); /* Set height to be viewport minus nav */
   padding: 10px;
 }
 
+/* Row for body content */
 .row {
   flex: 1;
   display: flex;
@@ -109,93 +116,103 @@ body {
   margin: 50px 0;
 }
 
-/* Styles for larger screens (desktop, tablets) */
+/* Medium screen breakpoint: 640px */
 @media (min-width: 640px) {
   @layer components {
     .nav-container {
-      @apply px-6;
-      max-width: 640px;
+      @apply px-6; /* Increased horizontal padding */
+      max-width: 640px; /* max width of the nav container */
     }
   }
 }
 
+/* Tablet and desktop breakpoint: 768px */
 @media (min-width: 768px) {
   @layer components {
     .heading {
-      @apply text-3xl;
-      /* Increase heading size */
+      @apply text-3xl; /* Increase heading size */
     }
 
     .button {
-      @apply text-base;
-      /* Increase button text size */
+      @apply text-base; /* Increase button text size */
     }
 
     .hamburger {
-      @apply hidden; /* hide hamburger on larger screens */
+      @apply hidden; /* Hide hamburger on larger screens */
     }
 
+    /* Larger Screen Navbar */
     .navbar {
-      @apply flex flex-row items-center justify-start relative top-0 shadow-none p-0; /* remove absolute positioning and set flex-row */
+      @apply flex flex-row items-center justify-start shadow-none p-0; /* horizontal flex and no shadow*/
+      max-height: none; /* ensure menu content is visible */
+      overflow: visible; /* ensure that no overflow is hidden */
     }
 
+    /* Navigation list container on large screens */
     .navbar ul {
-      @apply flex-row; /* Show items in a row */
+      @apply flex-row; /* Display links in a row */
     }
 
+    /* List items on large screens */
     .navbar li {
       @apply mr-2; /* Spacing between menu items */
     }
 
+    /* Links on large screens */
     .navbar a {
-      @apply text-black; /* Text colour */
-      max-height: none; /* Make it always visible */
+      @apply text-black; /* Set text color */
+      max-height: none; /* Ensure full visibility */
     }
 
+    /* Active class override on larger screens, should not be used */
     .navbar.active {
-      @apply flex flex-row; /* Force menu items to be row format */
+      @apply flex flex-row; /* Keep the menu displayed in a row */
+      max-height: none; /* override the max-height */
     }
 
     .nav-container {
-      height: 80px; /* Increase height on larger screens */
-      padding: 0.5rem 2rem; /* More padding on large screens */
+      height: 80px; /* Increased nav container height */
+      padding: 0.5rem 2rem; /* More horizontal padding on larger screens */
+      /* Note: 80px height is within recommendations for desktop devices */
     }
   }
 }
-
+/* Large screen breakpoint: 1024px */
 @media (min-width: 1024px) {
   @layer components {
     .nav-container {
-      @apply px-8;
-      max-width: 1024px;
-      height: 80px; /* Increase height on larger screens */
-      padding: 0.5rem 2rem; /* More padding on large screens */
+      @apply px-8; /* Increase padding */
+      max-width: 1024px; /* max width for nav */
+      height: 80px; /* maintain same height */
+      padding: 0.5rem 2rem; /* keep padding the same */
     }
   }
 }
 
-/* Responsive Navbar */
-@media (max-width: 768px) {
+/* Responsive Navbar: Mobile only styling for navbar and hamburger */
+@media (max-width: 767px) {
   @layer components {
     .navbar {
-      @apply w-full bg-white border-t border-gray-300 z-10;
-      top: 100%;
+      @apply w-full bg-white border-t border-gray-300 z-10 absolute left-0 right-0; /* Absolute position to stick to top */
+      top: 100%; /* Positioned right below the nav container */
+      overflow: hidden; /*ensure the transition will work with the max-height properties */
     }
 
     .navbar.active {
       @apply flex; /* Show when toggled on*/
+      overflow: visible; /* set to visible to not overflow on transition */
     }
 
     .navbar ul {
-      @apply flex-col items-center;
+      @apply flex-col items-center; /* Vertical display for mobile menu */
     }
 
     .navbar li {
-      @apply mb-2;
+      @apply mb-2; /* Space out items in mobile */
     }
 
     .hamburger {
-      @apply inline-block self-end pr-4;
+      @apply inline-block self-end pr-4; /* Hamburger visibility and position */
     }
   }
 }

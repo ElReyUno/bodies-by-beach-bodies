@@ -58,8 +58,9 @@ function Nav() {
     return (
         <nav className="flex flex-col w-full" role="navigation" aria-label="Main Navigation">
             <div className="flex justify-between items-center w-full">
+                {/* Hamburger only on small screens */}
                 <div
-                    className="text-3xl cursor-pointer hamburger"
+                    className="text-3xl cursor-pointer hamburger md:hidden"  // Hide on medium and larger screens
                     onClick={toggleNavbar}
                     aria-label={isNavOpen ? "close navigation menu" : "open navigation menu"}
                     ref={hamburgerRef}
@@ -94,19 +95,21 @@ function Nav() {
                     </svg>
                 </button>
             </div>
-            {/* Use useRef for focus management */}
+            {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
-                className={`navbar ${isNavOpen ? 'active' : ''}`}
+                className={`navbar ${isNavOpen ? 'block' : 'hidden'} md:block`} // Show on medium screens and up
             >
                 <ul className="flex flex-col md:flex-row">
                     <li><Link href="/" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
                     <li><Link href="/about" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
-                    <li><Link href="/contact" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Contact</Link></li>
+                    <li><Link href="/services" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>
+                    <li><Link href="/facilities-n-resources" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Facilities & Resources</Link></li>
+                    <li><Link href="/partnerships" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Partnerships</Link></li>
                 </ul>
             </div>
             {/* Overlay */}
-            {isNavOpen && (<div className="fixed inset-0 bg-black opacity-50 z-10" onClick={() => setIsNavOpen(false)}></div>)}
+            {isNavOpen && (<div className="fixed inset-0 bg-black opacity-50 z-10 md:hidden" onClick={() => setIsNavOpen(false)}></div>)}
         </nav>
     );
 }

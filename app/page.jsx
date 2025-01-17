@@ -1,13 +1,7 @@
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-
-export default function Home() {
+export default function Page() {
     return (
-        <>
-            <Header/>
-            <Main/>
-            <Footer/>
-        </>
+        <main>
+            <h1>Bodies By Beach Bodies</h1>
+        </main>
     );
 }
