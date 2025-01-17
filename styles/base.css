@@ -28,13 +28,14 @@
 
   /* Hamburger Menu Icon - Mobile specific styling */
   .hamburger {
-    @apply block cursor-pointer text-2xl;
+    @apply block cursor-pointer inline-flex items-center;   /* Keep inline flex for mobile hamburger */
+    padding: 0.5rem;                                        /* Add padding for tap target on smaller devices */
   }
 
   /* Navigation container */
   .nav-container {
     @apply w-full mx-auto px-4 flex items-center justify-between; /* 100% width, horizontal flex, items aligned, justify content for spacing */
-    height: 60px; /* Base height for small screens */
+    height: 70px; /* Base height for small screens */
     max-width: 100%; /* Max width to take full screen width */
     padding: 0.5rem 1rem;
     /* Note: 60px height is within recommended range for mobile touch targets*/
@@ -85,10 +86,65 @@
     border-radius: 0.375rem; /* border radius hover effect */
   }
 }
-/* Logo container image style */
+
+/* Logo container for responsive image style and sizing */
 .logo-container > img {
-  max-height: 40px; /* Max height for small logo */
-  max-width: 150px; /* Max width for small logo */
+    height: 50px;
+    width: 300px;
+
+  @media (min-width: 640px) {
+    max-height: 60px;
+    max-width: 250px;
+  }
+
+  @media (min-width: 768px) {
+    max-height: 67px;
+    max-width: 300px;
+  }
+
+  @media (min-width: 1024px) {
+    max-height: 90px;
+    max-width: 350px;
+  }
+
+  @media (min-width: 1280px) {
+    max-height: 110px;
+    max-width: 425px;
+  }
+}
+
+.search-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+
+  @media (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.hamburger {
+  font-size: 28px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 36px;
+  }
 }
 
 /* Main Body Base Styles */

@@ -106,7 +106,7 @@ This section outlines the planning and design documentation that has been used f
     *   **Desktop:** ![Website Desktop Layout Design](./docs/img/flowchart_wireframes/Desktop.webp)
 *   #### Mock-Up Creation
      *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
-     *   Export your mock-ups into a set of image files (i.e. `png`, `jpeg`) for easy sharing and conversion.
+     *   Export your mock-ups into a set of image files (i.e. `png`, `jpeg`, `cwebp`) for easy sharing and conversion.
          *   **Cell Phone Home:** ![Website Cell Phone Home Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
          *   **Tablet Home:** ![Website Tablet Home Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
          *   **Desktop Home:** ![Website Desktop Home Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
@@ -120,49 +120,50 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 
 ### HTML Components
 
-*   `<!DOCTYPE html>`
-    *   Declares the HTML5 document type
-*   `<html>`
-    *   The root element of the HTML document
-*   `<head>`
-    *   Contains meta-information
-*   `<body>`
-    *   Contains all the visible content
-*   `<header>`
-    *   Used for navigation
-        *   `<img>` or `<div>` to display the logo.
-        *   `<nav>` for the navigation.
-        *   `<button>` for the hamburger menu.
-*   `<main>`
-    *   Used for displaying the content
-*   `<footer>`
-    *   Used for footer
-        *   `<nav>` for the secondary navigation.
-        *   `<p>` for the copyright information.
-*   `<section>`
-    *   Used for a thematic grouping of content.
-*   `<article>`
-    *   Used for self-contained content.
-*   `<h1>`, `<h2>`, `<h3>`, etc.
-    *   Heading tags to define the hierarchy of content
-*   `<img>`
-    *   Displays images.
-*   `<p>`
-    *   Represents a paragraph of text.
-*   `<ul>` and `<li>`
-    *   Unordered list and list items.
-*   `<a>`
-    *   Creates links
-*   `<form>`
-    *   Creates a form.
-*   `<button>`
-    *   Used for actions and interactions.
-*   `<video>` and `<audio>`
-    *   Used to display media.
-*   `<div>`
-    *   A general container element.
-    *   Document Object Model (DOM)
-        * The DOM is a programming interface for HTML and XML documents. It represents the page as a tree of nodes, where each node is an object representing a part of the document. You will be manipulating the DOM through your Javascript.
+* `<!DOCTYPE html>`
+  * Declares the HTML5 document type
+* `<html>`
+  * The root element of the HTML document
+* `<head>`
+  * Contains meta-information
+* `<body>`
+  * Contains all the visible content
+* `<header>`
+  * Used for navigation
+    * `<img>` or `<div>` to display the logo.
+    * `<nav>` for the navigation.
+    * `<button>` for the hamburger menu.
+* `<main>`
+  * Used for displaying the content
+* `<footer>`
+  * Used for footer
+    * `<nav>` for the secondary navigation.
+    * `<p>` for the copyright information.
+* `<section>`
+  * Used for a thematic grouping of content.
+* `<article>`
+  * Used for self-contained content.
+* `<h1>`, `<h2>`, `<h3>`, etc.
+  * Heading tags to define the hierarchy of content
+* `<img>`
+  * Displays images.
+* `<p>`
+  * Represents a paragraph of text.
+* `<ul>` and `<li>`
+  * Unordered list and list items.
+* `<a>`
+  * Creates links
+* `<form>`
+  * Creates a form.
+* `<button>`
+  * Used for actions and interactions.
+* `<video>` and `<audio>`
+  * Used to display media.
+* `<div>`
+  * A general container element.
+
+### Document Object Model (DOM)
+* The DOM is a programming interface for HTML and XML documents. It represents the page as a tree of nodes, where each node is an object representing a part of the document. You will be manipulating the DOM through your JavaScript.
 
 ### Application Shell
 
@@ -213,12 +214,8 @@ Components will be built using re-usable UI elements:
     *   Use Figma for detailed, collaborative wireframes.
 4.  **Mock-up Creation:**
     *   Use wireframes and UI design files (Figma) to create a visual representation of the website.
-    *   Export your mock-ups.
-        *   ![Link to Cell Phone Mockup](./docs/img/flowchart_wireframes/CellPhoneMockUp.webp)
-        *   ![Link to Tablet Mockup](./docs/img/flowchart_wireframes/TabletMockUp.webp)
-        *   ![Link to Desktop Mockup](./docs/img/flowchart_wireframes/DesktopMockUp.webp)
 5.  **Creating a Mock-up with HTML:**
-    *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `png` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
+    *   Use HTML elements to create a mock-up of the UI structure using the wireframes and `cwbep` files as a reference. This can help visualize the structure of the web site before diving deep into the components.
     *   Use the HTML elements listed above under the "HTML Components" section to create the structure.
 6.  **Component Development:**
     *   Use a component-based approach with reusable UI components.

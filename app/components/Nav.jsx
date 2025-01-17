@@ -56,29 +56,32 @@ function Nav() {
 
 
     return (
-        <nav className="flex flex-col w-full" role="navigation" aria-label="Main Navigation">
+        <nav className="flex flex-col w-full min-h-[50px]" role="navigation" aria-label="Main Navigation">
             <div className="flex justify-between items-center w-full">
                 {/* Hamburger only on small screens */}
                 <div
-                    className="text-3xl cursor-pointer hamburger md:hidden"  // Hide on medium and larger screens
+                    className="hamburger cursor-pointer md:hidden"  // Hide on medium and larger screens
                     onClick={toggleNavbar}
                     aria-label={isNavOpen ? "close navigation menu" : "open navigation menu"}
                     ref={hamburgerRef}
                     tabIndex="0"
                 >
-                    {isNavOpen ? <HiX /> : <HiMenu />}
+                    {isNavOpen ? <HiX className="text-3xl sm:text-4xl" /> : <HiMenu className="text-3xl sm:text-4xl" />}
                 </div>
-                <div className="logo-container">
+                <div className="logo-container > img">
                     <Link href="/" className="logo-link">
                     </Link>
                     <Image
                         src={cwebpLogo}
                         alt="BBBB Logo"
-                        className="mx-auto"
+                        className="logo-container > img mx-auto"
                         priority
                     />
                 </div>
-                <button className="p-2 rounded-full hover:bg-gray-100 focus:outline-none">
+                <button
+                    className="p-2 rounded-full hover:bg-gray-100 focus:outline-none search-button "
+                    aria-label="search"
+                >
                     <svg
                         className="w-5 h-5"
                         fill="none"
@@ -98,14 +101,14 @@ function Nav() {
             {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
-                className={`navbar ${isNavOpen ? 'block' : 'hidden'} md:block`} // Show on medium screens and up
+                className={`navbar ${isNavOpen ? 'block' : 'hidden'} md:block md:mt-4`} // Show on medium screens and up
             >
-                <ul className="flex flex-col md:flex-row">
-                    <li><Link href="/" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
-                    <li><Link href="/about" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
-                    <li><Link href="/services" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>
-                    <li><Link href="/facilities-n-resources" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Facilities & Resources</Link></li>
-                    <li><Link href="/partnerships" className="navLink block p-2" tabIndex={isNavOpen ? 0 : -1}>Partnerships</Link></li>
+                <ul className="flex flex-col md:flex-row md:space-x-4 md:justify-center">
+                    <li><Link href="/" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
+                    <li><Link href="/about" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
+                    <li><Link href="/services" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>
+                    <li><Link href="/facilities-n-resources" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Facilities & Resources</Link></li>
+                    <li><Link href="/partnerships" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Partnerships</Link></li>
                 </ul>
             </div>
             {/* Overlay */}

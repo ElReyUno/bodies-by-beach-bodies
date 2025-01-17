@@ -1,7 +1,13 @@
+import Nav from './components/Nav';
+import Main from './components/Main';
+import Footer from './components/Footer';
+
 export default function Page() {
     return (
-        <main>
-            <h1>Bodies By Beach Bodies</h1>
-        </main>
+        <>
+            <Nav />
+            <Main />
+            <Footer />
+        </>
     );
 }
