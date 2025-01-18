@@ -99,9 +99,9 @@ function Nav() {
             {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
-                className={`navbar ${isNavOpen ? 'active' : ''} md:flex md:justify-center md:items-center md:pt-2 md:pb-4`}
+                className={`navbar ${isNavOpen ? 'active' : 'hidden'} md:flex md:justify-center md:items-center md:pt-2 md:pb-4`}
             >
-                <ul className="flex flex-row justify-evenly w-full" aria-label="Navigation Links">
+                <ul className="flex flex-col justify-evenly w-full" aria-label="Navigation Links">
                     <li><Link href="/" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
                     <li><Link href="/about" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
                     <li><Link href="/services" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>

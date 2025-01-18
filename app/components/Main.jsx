@@ -41,8 +41,8 @@ function Main() {
     }, []);
 
     return (
-        <main className="flex-grow flex flex-col justify-start items-center min-h-screen">
-            <div className="flex flex-col items-center justify-center w-full py-4 md:py-8 px-4 md:px-6">
+        <main className="flex-grow flex flex-col justify-start items-center min-h-screen relative">
+            <div className="flex flex-col items-center justify-center w-full py-12 md:py-24 px-4 md:px-6">
                 <h1 className="text-3xl">Bodies By Beach Bodies</h1>
                 <h2 className="text-2xl">Transform Your Body & Mind</h2>
             </div>

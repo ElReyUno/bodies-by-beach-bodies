@@ -122,11 +122,23 @@
   height: 24px;
 }
 
+header {
+    /* Styling for header (e.g., background color, height) */
+    flex: 0 0 auto;
+}
+
 /* Main Body Base Styles */
 html,
 body {
-  min-height: 100vh; /* Ensure content takes up at least viewport height */
-  overflow-y: auto; /* Enable vertical scrolling */
+    flex: 1 0 auto;
+    position: flex;
+    min-height: 100vh; /* Ensure content takes up at least viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+footer {
+   /* Styling for footer (e.g., background color, text) */
+   flex: 0 0 auto;
 }
 
 /* Container for body content */
@@ -181,30 +193,34 @@ body {
     /* Larger Screen Navbar */
     .navbar {
       @apply flex flex-row items-center justify-start shadow-none p-0; /* Horizontal flex and no shadow */
-      position: static;
+      position: flex;
       top: auto;
       box-shadow: none;
-      animation: none;
       max-height: none; /* Ensure menu content is visible */
       overflow: visible; /* Ensure that no overflow is hidden */
     }
 
+    /* Navigation list container on large screens */
     .navbar ul {
-      @apply flex flex-row justify-evenly w-full;
+      @apply flex flex-row justify-evenly w-full;   /* Display links in a row */
     }
 
+    /* List items on large screens */
     .navbar li {
       @apply mr-2; /* Spacing between menu items */
     }
 
+    /* Links on large screens */
     .navbar a {
       @apply text-black; /* Set text color */
       max-height: none; /* Ensure full visibility */
     }
 
     .nav-container {
-      height: 80px;
-      padding: 0.5rem 2rem;
+        position: flex; /* Default position for mobile */
+        z-index: 10; /* Ensure the nav is above other content */
+        width: 100%;
+        background-color: white; /* Optional: Set a background color */
     }
   }
 
