@@ -120,46 +120,46 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 
 ### HTML Components
 
-* `<!DOCTYPE html>`
+* ``<!DOCTYPE html>``
   * Declares the HTML5 document type
-* `<html>`
+* ``<html>``
   * The root element of the HTML document
-* `<head>`
+* ``<head>``
   * Contains meta-information
-* `<body>`
+* ``<body>``
   * Contains all the visible content
-* `<header>`
+* ``<header>``
   * Used for navigation
-    * `<img>` or `<div>` to display the logo.
-    * `<nav>` for the navigation.
-    * `<button>` for the hamburger menu.
-* `<main>`
+    * ``<img>`` or ``<div>`` to display the logo.
+    * ``<nav>`` for the navigation.
+    * ``<button>`` for the hamburger menu.
+* ``<main>``
   * Used for displaying the content
-* `<footer>`
+* ``<footer>``
   * Used for footer
-    * `<nav>` for the secondary navigation.
-    * `<p>` for the copyright information.
-* `<section>`
+    * ``<nav>`` for the secondary navigation.
+    * ``<p>`` for the copyright information.
+* ``<section>``
   * Used for a thematic grouping of content.
-* `<article>`
+* ``<article>``
   * Used for self-contained content.
-* `<h1>`, `<h2>`, `<h3>`, etc.
+* ``<h1>``, ``<h2>``, ``<h3>``, etc.
   * Heading tags to define the hierarchy of content
-* `<img>`
+* ``<img>``
   * Displays images.
-* `<p>`
+* ``<p>``
   * Represents a paragraph of text.
-* `<ul>` and `<li>`
+* ``<ul>`` and ``<li>``
   * Unordered list and list items.
-* `<a>`
+* ``<a>``
   * Creates links
-* `<form>`
+* ``<form>``
   * Creates a form.
-* `<button>`
+* ``<button>``
   * Used for actions and interactions.
-* `<video>` and `<audio>`
+* ``<video>`` and ``<audio>``
   * Used to display media.
-* `<div>`
+* ``<div>``
   * A general container element.
 
 ### Document Object Model (DOM)

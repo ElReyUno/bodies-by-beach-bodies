@@ -1,6 +1,8 @@
 /* Tailwind Directives */
 @tailwind base;
+
 @tailwind components;
+
 @tailwind utilities;
 
 /* Base styles (mobile-first) */
@@ -36,6 +38,9 @@
     height: 60px; /* Base height for mobile */
     max-width: 100%; /* Max width to take full screen width */
     padding: 0.5rem 1rem;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: white; /* Ensure the background color is set */
+    z-index: 1000; /* Ensure it appears above other content */
     /* Note: 60px height is within recommended range for mobile touch targets*/
   }
 
@@ -51,7 +56,7 @@
   .navbar.active {
     max-height: 500px; /* Show the menu when active */
     overflow: visible;
-}
+  }
 
   /* Individual navigation link */
   .navbar a {
@@ -60,31 +65,32 @@
   }
 
   /* Active state for mobile */
-.navbar.active {
+  .navbar.active {
     @apply flex flex-col items-center; /* Show as flex when active */
     animation: slideDown 0.3s ease-in-out forwards;
-}
+  }
 
-/* Animation for smooth transition */
-@keyframes slideDown {
+  /* Animation for smooth transition */
+  @keyframes slideDown {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
     }
+
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
+  }
 
   /* List of navigation links */
   .navbar ul {
     @apply list-none p-0; /* Remove default list styling*/
-}
+  }
 
-.navbar li {
+  .navbar li {
     @apply mr-2; /* right margin for spacing */
-}
+  }
 
   /* Link Styles in Navigation */
   .navLink {
@@ -110,6 +116,25 @@
   width: 300px;
 }
 
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #005bb5;
+}
+
+.cta-button:focus {
+  outline: 2px solid #005bb5;
+  outline-offset: 2px;
+}
+
 .search-button {
   display: inline-flex;
   align-items: center;
@@ -123,22 +148,24 @@
 }
 
 header {
-    /* Styling for header (e.g., background color, height) */
-    flex: 0 0 auto;
+  /* Styling for header (e.g., background color, height) */
+  position: sticky;
+  top: 0;
+  flex: 0 0 auto;
 }
 
 /* Main Body Base Styles */
 html,
 body {
-    flex: 1 0 auto;
-    position: flex;
-    min-height: 100vh; /* Ensure content takes up at least viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1 0 auto;
+  position: flex;
+  min-height: 100vh; /* Ensure content takes up at least viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 footer {
-   /* Styling for footer (e.g., background color, text) */
-   flex: 0 0 auto;
+  /* Styling for footer (e.g., background color, text) */
+  flex: 0 0 auto;
 }
 
 /* Container for body content */
@@ -217,10 +244,10 @@ footer {
     }
 
     .nav-container {
-        position: flex; /* Default position for mobile */
-        z-index: 10; /* Ensure the nav is above other content */
-        width: 100%;
-        background-color: white; /* Optional: Set a background color */
+      position: flex; /* Default position for mobile */
+      z-index: 10; /* Ensure the nav is above other content */
+      width: 100%;
+      background-color: white; /* Optional: Set a background color */
     }
   }
 

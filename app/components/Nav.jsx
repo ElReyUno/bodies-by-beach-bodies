@@ -5,14 +5,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { HiMenu, HiX } from 'react-icons/hi';
 import cwebpLogo from '../../public/img/Logo.webp';
+import Search from './Search';
 
 function Nav() {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const menuRef = useRef(null); // Ref for the navigation menu
     const hamburgerRef = useRef(null); // Ref for the hamburger button
 
     const toggleNavbar = useCallback(() => {
         setIsNavOpen((prevState) => !prevState);
+    }, []);
+
+    const toggleSearch = useCallback(() => {
+        setIsSearchOpen((prevState) => !prevState);
     }, []);
 
     // Focus management
@@ -66,19 +72,18 @@ function Nav() {
                 >
                     {isNavOpen ? <HiX className="text-3xl sm:text-4xl" /> : <HiMenu className="text-3xl sm:text-4xl" />}
                 </div>
-                <div className="logo-container > img">
-                    <Link href="/" className="logo-link">
-                    </Link>
+                <Link href="/" className="logo-container focus:outline-none" aria-label="Go to home page">
                     <Image
                         src={cwebpLogo}
                         alt="BBBB Logo"
-                        className="logo-container > img mx-auto"
+                        className="mx-auto"
                         priority
                     />
-                </div>
+                </Link>
                 <button
-                    className="p-2 rounded-full hover:bg-gray-100 focus:outline-none search-button "
+                    className="p-2 rounded-full hover:bg-gray-100 focus:outline-none search-button"
                     aria-label="search"
+                    onClick={toggleSearch}
                 >
                     <svg
                         className="w-5 h-5"
@@ -96,6 +101,11 @@ function Nav() {
                     </svg>
                 </button>
             </div>
+            {isSearchOpen && (
+                <div className="flex justify-center items-center w-full py-2 px-4 md:px-6">
+                    <Search />
+                </div>
+            )}
             {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
