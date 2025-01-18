@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useState  } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import Home from './Home';
@@ -23,8 +24,20 @@ import Home from './Home';
 // import Partnerships from './Partnerships';
 
 function Main() {
-    const handleClick = useCallback(() => {
-        alert('clicked!');
+    const router = useRouter();
+
+    // State variables for the selected values in the dropdown menus
+    const [selectedService, setSelectedService] = useState('');
+    const [selectedFacility, setSelectedFacility] = useState('');
+    const [selectedPartnership, setSelectedPartnership] = useState('');
+
+    // Event handler for the "Services" dropdown menu
+    const handleServiceChange = useCallback((event) => {
+        const value = event.target.value; // Get the selected value
+        setSelectedService(value); // Update the state with the selected value
+        if (value) {
+            router.push(value); // Navigate to the selected route if a valid value is selected
+        }
     }, []);
 
     return (
@@ -42,12 +55,16 @@ function Main() {
                     </div>
                     <div className="w-1/2 image-container">
                         <div className="row">
-                            <select>
-                                <option value="services">Services</option>
+                            <select value={selectedService} onChange={handleServiceChange}>
+                                <option value="/services">Services</option>
                                 <optgroup label="Sub-options">
-                                    <option value="fitness">Fitness</option>
-                                    <option value="physical-therapy">Physical Therapy</option>
-                                    <option value="spa">Spa</option>
+                                    <option value="/services/fitness">Fitness</option>
+                                    <option value="/services/fitness/bootcamp"> -- Boot Camp</option>
+                                    <option value="/services/fitness/classes"> -- Indoor Fitness Classes</option>
+                                    <option value="/services/fitness/personal-training"> -- Personal Training</option>
+                                    <option value="/services/physical-therapy">Physical Therapy</option>
+                                    <option value="/services/spa">Spa Services</option>
+                                    <option value="/services/boxing">Boxing Lessons</option>
                                 </optgroup>
                             </select>
                         </div>

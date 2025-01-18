@@ -176,22 +176,22 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 The following will be loaded within the `<main>` element of the SPA.
 
 *   `Home Component` (`/` or `/home`): Main landing page.
-*   `About Component` (`/about`): Information about Personal Trainer, the company, and their partnership.
-*   `Contact Component` (`/contact`): Contact form and contact information.
+*   `About Component` (`/about`): Information about Personal Trainer, the company, and their partnerships.
 *   `Services Component` (`/services`): A list of all services
     *   `Fitness Sub-Component` (`/services/fitness`):
         *   `Boot Camp Sub-Component` (`/services/fitness/bootcamp`): Boot camp information, schedule and sign up.
         *   `Indoor Fitness Sub-Component` (`/services/fitness/classes`): Indoor Fitness Classes information and scheduling.
         *   `Personal Training Sub-Component` (`/services/fitness/personal-training`): Personal training information and sign up.
-        *   `Online Coaching Sub-Component` (`/services/fitness/online-coaching`): Online Coaching information and sign up.
-        *   `24/7 Access Sub-Component` (`/services/fitness/24-7-access`): 24/7 access information and sign up.
     *   `Physical Therapy Sub-Component` (`/services/physical-therapy`): Physical Therapy information and sign up.
     *   `Spa Services Sub-Component` (`/services/spa`): Spa Services information and sign up.
-    *   `Boxing Lessons Sub-Component` (`/services/boxing`): Boxing lessons information and sign up.
 *   `Facilities Component` (`/facilities`): Information and images of the facilities.
-*   `Testimonials Component` (`/testimonials`): Client testimonials.
-*   `Blog Component` (`/blog`): Blog posts.
+    *   `24/7 Access Sub-Component` (`/services/fitness/24-7-access`): 24/7 access information and sign up.
+    *   `Boxing Lessons Sub-Component` (`/services/boxing`): Boxing lessons information and sign up.
+    *   `Online Coaching Sub-Component` (`/services/fitness/online-coaching`): Online Coaching information and sign up.
 *   `Partnerships Component` (`/partnerships`): Information for potential investors and partners.
+    *   `Testimonials Component` (`/testimonials`): Client testimonials.
+    *   `Blog Component` (`/blog`): Blog posts.
+    *   `Contact Component` (`/contact`): Contact form and contact information.
 
 ### UI Components
 
