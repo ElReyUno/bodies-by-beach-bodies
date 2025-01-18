@@ -57,7 +57,7 @@ function Main() {
                         <div className="row">
                             <select value={selectedService} onChange={handleServiceChange}>
                                 <option value="/services">Services</option>
-                                <optgroup label="Sub-options">
+                                <optgroup label="Services Available:">
                                     <option value="/services/fitness">Fitness</option>
                                     <option value="/services/fitness/bootcamp"> -- Boot Camp</option>
                                     <option value="/services/fitness/classes"> -- Indoor Fitness Classes</option>

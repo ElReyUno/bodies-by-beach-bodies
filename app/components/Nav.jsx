@@ -40,10 +40,9 @@ function Nav() {
         };
     }, [handleKeyDown]);
 
-
     const handleBlur = useCallback((event) => {
         if (isNavOpen && menuRef.current && !menuRef.current.contains(event.relatedTarget) && hamburgerRef.current && !hamburgerRef.current.contains(event.relatedTarget)) {
-            setIsNavOpen(false)
+            setIsNavOpen(false);
         }
     }, [isNavOpen, setIsNavOpen]);
 
@@ -51,13 +50,12 @@ function Nav() {
         document.addEventListener('focusout', handleBlur);
         return () => {
             document.removeEventListener('focusout', handleBlur);
-        }
-    }, [handleBlur])
-
+        };
+    }, [handleBlur]);
 
     return (
-        <nav className="flex flex-col w-full min-h-[50px]" role="navigation" aria-label="Main Navigation">
-            <div className="flex justify-between items-center w-full">
+        <nav className="flex flex-col w-full min-h-[50px] relative" role="navigation" aria-label="Main Navigation">
+            <div className="flex justify-between items-center w-full py-2 px-4 md:px-6">
                 {/* Hamburger only on small screens */}
                 <div
                     className="hamburger cursor-pointer md:hidden"  // Hide on medium and larger screens
@@ -101,9 +99,9 @@ function Nav() {
             {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
-                className={`navbar ${isNavOpen ? 'block' : 'hidden'} md:block md:mt-4`} // Show on medium screens and up
+                className={`navbar ${isNavOpen ? 'active' : ''} md:flex md:justify-center md:items-center md:pt-2 md:pb-4`}
             >
-                <ul className="flex flex-col md:flex-row md:space-x-4 md:justify-center">
+                <ul className="flex flex-row justify-evenly w-full" aria-label="Navigation Links">
                     <li><Link href="/" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
                     <li><Link href="/about" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
                     <li><Link href="/services" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>

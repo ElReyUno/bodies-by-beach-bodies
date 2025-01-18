@@ -1,8 +1,6 @@
 /* Tailwind Directives */
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 /* Base styles (mobile-first) */
@@ -28,14 +26,14 @@
 
   /* Hamburger Menu Icon - Mobile specific styling */
   .hamburger {
-    @apply block cursor-pointer inline-flex items-center;   /* Keep inline flex for mobile hamburger */
-    padding: 0.5rem;                                        /* Add padding for tap target on smaller devices */
+    @apply block cursor-pointer inline-flex items-center p-2;   /* Keep inline flex for mobile hamburger */
+    font-size: 28px; /* Hamburger size for mobile */
   }
 
   /* Navigation container */
   .nav-container {
     @apply w-full mx-auto px-4 flex items-center justify-between; /* 100% width, horizontal flex, items aligned, justify content for spacing */
-    height: 70px; /* Base height for small screens */
+    height: 60px; /* Base height for mobile */
     max-width: 100%; /* Max width to take full screen width */
     padding: 0.5rem 1rem;
     /* Note: 60px height is within recommended range for mobile touch targets*/
@@ -53,7 +51,7 @@
   .navbar.active {
     max-height: 500px; /* Show the menu when active */
     overflow: visible;
-  }
+}
 
   /* Individual navigation link */
   .navbar a {
@@ -61,56 +59,55 @@
     min-height: 44px; /* min-height for touch target */
   }
 
+  /* Active state for mobile */
+.navbar.active {
+    @apply flex flex-col items-center; /* Show as flex when active */
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+
+/* Animation for smooth transition */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
   /* List of navigation links */
   .navbar ul {
     @apply list-none p-0; /* Remove default list styling*/
-  }
+}
 
-  /* List Item in Navigation */
-  .navbar li {
+.navbar li {
     @apply mr-2; /* right margin for spacing */
-  }
+}
 
   /* Link Styles in Navigation */
   .navLink {
-    @apply no-underline text-gray-700 px-1; /* Remove underline and set color */
-    display: block; /* Block display for full-width clickable area */
+    @apply no-underline text-gray-700 px-1  block transition-all duration-300 ease-in-out; /* Remove underline, set color, added transition for hover */
     padding: 0.5rem 1rem; /* Spacing */
-    transition: all 0.3s ease; /* Smooth hover transitions */
   }
 
   /* Link Hover Style in Navigation */
   .navLink:hover {
-    @apply underline; /* underline hover effect */
+    @apply underline rounded-md; /* underline hover effect */
     background-color: #f3f4f6;
-    border-radius: 0.375rem; /* border radius hover effect */
   }
+}
+
+/* Specific Style for navbar ul when part of hamburger*/
+.navbar.active ul {
+  @apply flex-col items-center; /* Vertical display for mobile menu */
 }
 
 /* Logo container for responsive image style and sizing */
 .logo-container > img {
-    height: 50px;
-    width: 300px;
-
-  @media (min-width: 640px) {
-    max-height: 60px;
-    max-width: 250px;
-  }
-
-  @media (min-width: 768px) {
-    max-height: 67px;
-    max-width: 300px;
-  }
-
-  @media (min-width: 1024px) {
-    max-height: 90px;
-    max-width: 350px;
-  }
-
-  @media (min-width: 1280px) {
-    max-height: 110px;
-    max-width: 425px;
-  }
+  height: 50px;
+  width: 300px;
 }
 
 .search-button {
@@ -123,28 +120,6 @@
 .search-icon {
   width: 24px;
   height: 24px;
-
-  @media (min-width: 768px) {
-    width: 28px;
-    height: 28px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-.hamburger {
-  font-size: 28px;
-
-  @media (min-width: 768px) {
-    font-size: 32px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 36px;
-  }
 }
 
 /* Main Body Base Styles */
@@ -159,7 +134,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100vh - 80px); /* Set height to be viewport minus nav */
+  min-height: calc(100vh - 60px); /* Set height to be viewport minus nav */
   padding: 10px;
 }
 
@@ -177,8 +152,13 @@ body {
   @layer components {
     .nav-container {
       @apply px-6; /* Increased horizontal padding */
-      max-width: 640px; /* max width of the nav container */
+      height: 70px;
     }
+  }
+
+  .logo-container > img {
+    max-height: 60px;
+    max-width: 250px;
   }
 }
 
@@ -195,42 +175,51 @@ body {
 
     .hamburger {
       @apply hidden; /* Hide hamburger on larger screens */
+      font-size: 32px;
     }
 
     /* Larger Screen Navbar */
     .navbar {
-      @apply flex flex-row items-center justify-start shadow-none p-0; /* horizontal flex and no shadow*/
-      max-height: none; /* ensure menu content is visible */
-      overflow: visible; /* ensure that no overflow is hidden */
+      @apply flex flex-row items-center justify-start shadow-none p-0; /* Horizontal flex and no shadow */
+      position: static;
+      top: auto;
+      box-shadow: none;
+      animation: none;
+      max-height: none; /* Ensure menu content is visible */
+      overflow: visible; /* Ensure that no overflow is hidden */
     }
 
-    /* Navigation list container on large screens */
     .navbar ul {
-      @apply flex-row; /* Display links in a row */
+      @apply flex flex-row justify-evenly w-full;
     }
 
-    /* List items on large screens */
     .navbar li {
       @apply mr-2; /* Spacing between menu items */
     }
 
-    /* Links on large screens */
     .navbar a {
       @apply text-black; /* Set text color */
       max-height: none; /* Ensure full visibility */
     }
 
-    /* Active class override on larger screens, should not be used */
-    .navbar.active {
-      @apply flex flex-row; /* Keep the menu displayed in a row */
-      max-height: none; /* override the max-height */
-    }
-
     .nav-container {
-      height: 80px; /* Increased nav container height */
-      padding: 0.5rem 2rem; /* More horizontal padding on larger screens */
-      /* Note: 80px height is within recommendations for desktop devices */
+      height: 80px;
+      padding: 0.5rem 2rem;
     }
+  }
+
+  .logo-container > img {
+    max-height: 67px;
+    max-width: 300px;
+  }
+
+  .search-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .image-container {
+    min-height: calc(100vh - 70px);
   }
 }
 /* Large screen breakpoint: 1024px */
@@ -243,9 +232,28 @@ body {
       padding: 0.5rem 2rem; /* keep padding the same */
     }
   }
+
+  .logo-container > img {
+    max-height: 90px;
+    max-width: 350px;
+  }
+
+  .search-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hamburger {
+    font-size: 36px;
+  }
+
+  .image-container {
+    min-height: calc(100vh - 80px);
+  }
 }
 
 /* Responsive Navbar: Mobile only styling for navbar and hamburger */
+/* --- Small Screen Breakpoint (max-width: 767px) --- */
 @media (max-width: 767px) {
   @layer components {
     .navbar {
@@ -260,7 +268,7 @@ body {
     }
 
     .navbar ul {
-      @apply flex-col items-center; /* Vertical display for mobile menu */
+      @apply flex flex-row;
     }
 
     .navbar li {
