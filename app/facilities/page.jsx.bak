@@ -1,0 +1,51 @@
+"use client";
+
+import React from 'react';
+//import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Layout from '../../components/Layout';
+
+function Facilities() {
+    return (
+        <Layout>
+            <h1 className="text-2xl font-bold mb-4">Our Facilities</h1>
+            <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-2">Information About Our Facilities</h2>
+                <p className="mb-4">
+                    Our state-of-the-art facilities are designed to provide you with the best experience possible. We offer a variety of amenities including a fully equipped gym, a luxurious spa, a heated swimming pool, and modern locker rooms. Our facilities are maintained to the highest standards to ensure your comfort and safety.
+                </p>
+                <h2 className="text-xl font-semibold mb-2">Gallery</h2>
+                <p>
+                    Take a look at some images of our facilities below. We take pride in offering a clean, welcoming, and well-maintained environment for all our members.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <img src="../../public/img/gym.webp" alt="Gym" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="../../public/img/spa.webp" alt="Spa" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="../../public/img/steam-room.webp" alt="Steam Room" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="../../public/img/locker-room.webp" alt="Locker Room" className="w-full h-auto rounded-lg shadow-md" />
+                </div>
+            </div>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" name="name" id="name" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="email" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea name="message" id="message" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+                <div>
+                    <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </Layout>
+    );
+}
+
+export default Facilities;
