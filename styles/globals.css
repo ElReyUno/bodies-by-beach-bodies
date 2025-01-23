@@ -2,3 +2,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Text Field Component */
+.text-field-container {
+    margin-bottom: 1rem;
+}
+
+.text-field-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.text-field-label.focused {
+    color: #007bff;
+}
+
+.text-field-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.text-field-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.text-field-input.error {
+    border-color: red;
+}
