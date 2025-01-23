@@ -4,8 +4,8 @@ import React, { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import About from './About';
 import mainBackground from '../../public/img/main-background.webp'
+import About from '../about/page';
 
 // COMMENTED OUT UNTIL COMPONENTS ARE IMPLEMENTED AND UNCOMMENTED
 // import Contact from '../api/contact/route.js';
@@ -82,24 +82,24 @@ function Home() {
                         </div>
                         <div className="row">
                             <select>
-                            <option value="/Partnerships">Partnerships</option>
-                            <optgroup label="Partnerships:">
-                                <option value="/Testimonials">Testimonials Component</option>
-                                <option value="/Blog">Blog Component</option>
-                                <option value="/Contact">Contact</option>
-                            </optgroup>
+                                <option value="/Partnerships">Partnerships</option>
+                                <optgroup label="Partnerships:">
+                                    <option value="/Testimonials">Testimonials Component</option>
+                                    <option value="/Blog">Blog Component</option>
+                                    <option value="/Contact">Contact</option>
+                                </optgroup>
                             </select>
                         </div>
                         <div className="row">
-                            <About />
+                            <About embedded={true} />
                         </div>
                     </div>
                     <div className="w-1/4">
                         {/* Right content */}
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
     );
 }
 
