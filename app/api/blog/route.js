@@ -1,5 +1,5 @@
 export async function GET(request) {
-    return new Response('Boxing Page', {
+    return new Response('Blog Page', {
         status: 200,
         headers: {
             'Content-Type': 'text/plain',
@@ -12,7 +12,7 @@ export async function POST(request) {
     // Handle form submission, e.g., save data to a database or send an email
     console.log('Form data:', data);
 
-    return new Response('Form submitted successfully', {
+    return new Response('Blog post submitted successfully', {
         status: 200,
         headers: {
             'Content-Type': 'application/json',

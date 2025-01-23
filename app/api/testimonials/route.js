@@ -1,5 +1,5 @@
 export async function GET(request) {
-    return new Response('Boxing Page', {
+    return new Response('Contact Page', {
         status: 200,
         headers: {
             'Content-Type': 'text/plain',

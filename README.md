@@ -120,9 +120,7 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 
 ### HTML Components
 
-```HTML
-  <!DOCTYPE html>
-```
+* `<!DOCTYPE html>`
   * Declares the HTML5 document type
 * `<html>`
   * The root element of the HTML document
@@ -132,37 +130,39 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
   * Contains all the visible content
 * `<header>`
   * Used for navigation
-    * `<img>` or `<div>` to display the logo.
-    * `<nav>` for the navigation.
-    * `<button>` for the hamburger menu.
+  * Contains:
+    * `<img>` or `<div>` to display the logo
+    * `<nav>` for the navigation
+    * `<button>` for the hamburger menu
 * `<main>`
-  * Used for displaying the content
+  * Used for displaying the main content
 * `<footer>`
   * Used for footer
-    * `<nav>` for the secondary navigation.
-    * `<p>` for the copyright information.
+  * Contains:
+    * `<nav>` for the secondary navigation
+    * `<p>` for the copyright information
 * `<section>`
-  * Used for a thematic grouping of content.
+  * Used for a thematic grouping of content
 * `<article>`
-  * Used for self-contained content.
+  * Used for self-contained content
 * `<h1>`, `<h2>`, `<h3>`, etc.
   * Heading tags to define the hierarchy of content
 * `<img>`
-  * Displays images.
+  * Displays images
 * `<p>`
-  * Represents a paragraph of text.
+  * Represents a paragraph of text
 * `<ul>` and `<li>`
-  * Unordered list and list items.
+  * Unordered list and list items
 * `<a>`
   * Creates links
 * `<form>`
-  * Creates a form.
+  * Creates a form
 * `<button>`
-  * Used for actions and interactions.
+  * Used for actions and interactions
 * `<video>` and `<audio>`
-  * Used to display media.
+  * Used to display media
 * `<div>`
-  * A general container element.
+  * A general container element
 
 ### Document Object Model (DOM)
 * The DOM is a programming interface for HTML and XML documents. It represents the page as a tree of nodes, where each node is an object representing a part of the document. You will be manipulating the DOM through your JavaScript.
