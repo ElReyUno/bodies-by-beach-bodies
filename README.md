@@ -120,7 +120,9 @@ This project uses a Single-Page Application (SPA) architecture, with route-based
 
 ### HTML Components
 
-* `<!DOCTYPE html>`
+```HTML
+  <!DOCTYPE html>
+```
   * Declares the HTML5 document type
 * `<html>`
   * The root element of the HTML document
