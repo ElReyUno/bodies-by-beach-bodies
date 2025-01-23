@@ -10,9 +10,9 @@ function Services() {
     return (
         <>
             <Nav />
-            <div  className='md:pt-24 md:pb-4'>
+            <div className='container mx-auto flex flex-col items-center justify-center md:pt-24 md:pb-4' role="main" aria-label="Main Content">
                 <h2>Our Services:</h2>
-                <div>
+                <div className='flex flex-col items-center justify-center'>
                     <ul>
                     <li><Link href="/services/fitness">Fitness</Link></li>
                     <li><Link href="/services/physical-therapy">Physical Therapy</Link></li>
