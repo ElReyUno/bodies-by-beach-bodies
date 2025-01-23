@@ -74,9 +74,8 @@ function Home() {
                             <select>
                                 <option value="/facilities">Facilities & Resources</option>
                                 <optgroup label="Facilities & Resources:">
-                                    <option value="option1">24/7 Access</option>
-                                    <option value="option2">Boxing Lessons</option>
-                                    <option value="option3">Online Coaching</option>
+                                    <option value="/facilities/access/">24/7 Access</option>
+                                    <option value="/facilities/coaching/">Online Coaching</option>
                                 </optgroup>
                             </select>
                         </div>

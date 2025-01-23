@@ -115,7 +115,7 @@ function Nav() {
                     <li><Link href="/" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Home</Link></li>
                     <li><Link href="/about" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>About</Link></li>
                     <li><Link href="/services" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Services</Link></li>
-                    <li><Link href="/facilities-n-resources" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Facilities & Resources</Link></li>
+                    <li><Link href="/facilities" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Facilities & Resources</Link></li>
                     <li><Link href="/partnerships" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1}>Partnerships</Link></li>
                 </ul>
             </div>

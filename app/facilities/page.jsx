@@ -11,8 +11,8 @@ function Facilities() {
     return (
         <>
             <Nav />
-            <h1 className="text-2xl font-bold mb-4 pt-24">Our Facilities</h1>
-            <div className="mb-8">
+            <h1 className="text-2xl font-bold mb-4 pt-24 px-4">Our Facilities</h1>
+            <div className="mb-8 px-4">
                 <h2 className="text-xl font-semibold mb-2">Information About Our Facilities</h2>
                 <p className="mb-4">
                     Our state-of-the-art facilities are designed to provide you with the best experience possible. We offer a variety of amenities including a fully equipped gym, a luxurious spa, a heated swimming pool, and modern locker rooms. Our facilities are maintained to the highest standards to ensure your comfort and safety.
