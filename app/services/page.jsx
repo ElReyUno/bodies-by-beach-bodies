@@ -1,0 +1,29 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+// import { useServiceContext } from '../context/ServiceContext';
+
+function Services() {
+    return (
+        <>
+            <Nav />
+            <div  className='md:pt-24 md:pb-4'>
+                <h2>Our Services:</h2>
+                <div>
+                    <ul>
+                    <li><Link href="/services/fitness">Fitness</Link></li>
+                    <li><Link href="/services/physical-therapy">Physical Therapy</Link></li>
+                    <li><Link href="/services/spa">Spa</Link></li>
+                    <li><Link href="/services/boxing">Boxing</Link></li>
+                    </ul>
+                </div>
+            </div>
+            <Footer />
+        </>
+    );
+}
+
+export default Services;
