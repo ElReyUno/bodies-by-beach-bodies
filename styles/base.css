@@ -5,431 +5,508 @@
 
 /* Base styles (mobile-first) */
 @layer components {
-  /* Container for content */
-  .container {
-    @apply flex flex-col items-center justify-center flex-grow; /* Vertically align items and grow to fill space */
-    background-size: cover; /* Ensure the background image covers the entire container */
-    background-position: center; /* Center the background image */
-  }
 
-  /* Generic heading */
-  .heading {
-    @apply text-2xl font-bold text-center mb-4; /* Large text, bold, centered, with bottom margin */
-  }
-
-  /* Generic button */
-  .button {
-    @apply mt-4 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer text-sm; /* Margin, padding, style, and small text */
-  }
-
-  .button:hover {
-    @apply bg-blue-700; /* Darker hover effect */
-  }
-
-  /* Hamburger Menu Icon - Mobile specific styling */
-  .hamburger {
-    @apply block cursor-pointer inline-flex items-center p-2;   /* Keep inline flex for mobile hamburger */
-    font-size: 28px; /* Hamburger size for mobile */
-  }
-
-  /* Navigation container */
-  .nav-container {
-    @apply w-full mx-auto px-4 flex items-center justify-between; /* 100% width, horizontal flex, items aligned, justify content for spacing */
-    height: 60px; /* Base height for mobile */
-    max-width: 100%; /* Max width to take full screen width */
-    padding: 0.5rem 1rem;
-    top: 0; /* Stick to the top of the viewport */
-    background-color: white; /* Ensure the background color is set */
-    z-index: 1000; /* Ensure it appears above other content */
-    /* Note: 60px height is within recommended range for mobile touch targets*/
-  }
-
-  /* Navbar Menu - Initially hidden on mobile */
-  .navbar {
-    @apply flex-col items-center justify-center bg-white shadow-md p-4 z-10; /* Vertical flex, center alignment, shadow and white background */
-    transition: all 0.3s ease-in-out; /* Smooth show/hide transition */
-    max-height: 0; /* Initially hide the menu */
-    overflow: hidden; /* Clip overflowing content */
-  }
-
-  /* Active state for the navbar menu, mobile specific styles */
-  .navbar.active {
-    max-height: 500px; /* Show the menu when active */
-    overflow: visible;
-  }
-
-  /* Individual navigation link */
-  .navbar a {
-    @apply py-3 px-4 text-black no-underline block; /* Padding, black text, block display for full width clicks */
-    min-height: 44px; /* min-height for touch target */
-  }
-
-  /* Active state for mobile */
-  .navbar.active {
-    @apply flex flex-col items-center; /* Show as flex when active */
-    animation: slideDown 0.3s ease-in-out forwards;
-  }
-
-  /* Animation for smooth transition */
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
+    /* Container for content */
+    .container {
+        @apply flex flex-col items-center justify-center flex-grow;
+        /* Vertically align items and grow to fill space */
+        background-size: cover;
+        /* Ensure the background image covers the entire container */
+        background-position: center;
+        /* Center the background image */
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    /* Generic heading */
+    .heading {
+        @apply text-2xl font-bold text-center mb-4;
+        /* Large text, bold, centered, with bottom margin */
     }
-  }
 
-  /* List of navigation links */
-  .navbar ul {
-    @apply list-none p-0; /* Remove default list styling*/
-  }
+    /* Generic button */
+    .button {
+        @apply mt-4 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer text-sm;
+        /* Margin, padding, style, and small text */
+    }
 
-  .navbar li {
-    @apply mr-2; /* right margin for spacing */
-  }
+    .button:hover {
+        @apply bg-blue-700;
+        /* Darker hover effect */
+    }
 
-  /* Link Styles in Navigation */
-  .navLink {
-    @apply no-underline text-gray-700 px-1  block transition-all duration-300 ease-in-out; /* Remove underline, set color, added transition for hover */
-    padding: 0.5rem 1rem; /* Spacing */
-  }
+    /* Hamburger Menu Icon - Mobile specific styling */
+    .hamburger {
+        @apply block cursor-pointer inline-flex items-center p-2;
+        /* Keep inline flex for mobile hamburger */
+        font-size: 28px;
+        /* Hamburger size for mobile */
+    }
 
-  /* Link Hover Style in Navigation */
-  .navLink:hover {
-    @apply underline rounded-md; /* underline hover effect */
-    background-color: #f3f4f6;
-  }
+    /* Navigation container */
+    .nav-container {
+        @apply w-full mx-auto px-4 flex items-center justify-between;
+        /* 100% width, horizontal flex, items aligned, justify content for spacing */
+        height: 60px;
+        /* Base height for mobile */
+        max-width: 100%;
+        /* Max width to take full screen width */
+        padding: 0.5rem 1rem;
+        top: 0;
+        /* Stick to the top of the viewport */
+        background-color: white;
+        /* Ensure the background color is set */
+        z-index: 1000;
+        /* Ensure it appears above other content */
+        /* Note: 60px height is within recommended range for mobile touch targets*/
+    }
+
+    /* Navbar Menu - Initially hidden on mobile */
+    .navbar {
+        @apply flex-col items-center justify-center bg-white shadow-md p-4 z-10;
+        /* Vertical flex, center alignment, shadow and white background */
+        transition: all 0.3s ease-in-out;
+        /* Smooth show/hide transition */
+        max-height: 0;
+        /* Initially hide the menu */
+        overflow: hidden;
+        /* Clip overflowing content */
+    }
+
+    /* Active state for the navbar menu, mobile specific styles */
+    .navbar.active {
+        max-height: 500px;
+        /* Show the menu when active */
+        overflow: visible;
+    }
+
+    /* Individual navigation link */
+    .navbar a {
+        @apply py-3 px-4 text-black no-underline block;
+        /* Padding, black text, block display for full width clicks */
+        min-height: 44px;
+        /* min-height for touch target */
+    }
+
+    /* Active state for mobile */
+    .navbar.active {
+        @apply flex flex-col items-center;
+        /* Show as flex when active */
+        animation: slideDown 0.3s ease-in-out forwards;
+    }
+
+    /* Animation for smooth transition */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* List of navigation links */
+    .navbar ul {
+        @apply list-none p-0;
+        /* Remove default list styling*/
+    }
+
+    .navbar li {
+        @apply mr-2;
+        /* right margin for spacing */
+    }
+
+    /* Link Styles in Navigation */
+    .navLink {
+        @apply no-underline text-gray-700 px-1 block transition-all duration-300 ease-in-out;
+        /* Remove underline, set color, added transition for hover */
+        padding: 0.5rem 1rem;
+        /* Spacing */
+    }
+
+    /* Link Hover Style in Navigation */
+    .navLink:hover {
+        @apply underline rounded-md;
+        /* underline hover effect */
+        background-color: #f3f4f6;
+    }
 }
 
 /* Specific Style for navbar ul when part of hamburger*/
 .navbar.active ul {
-  @apply flex-col items-center; /* Vertical display for mobile menu */
+    @apply flex-col items-center;
+    /* Vertical display for mobile menu */
 }
 
 /* Logo container for responsive image style and sizing */
-.logo-container > img {
-  height: 50px;
-  width: 300px;
+.logo-container>img {
+    height: 50px;
+    width: 300px;
 }
 
 .cta-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #0070f3;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #005bb5;
+    background-color: #005bb5;
 }
 
 .cta-button:focus {
-  outline: 2px solid #005bb5;
-  outline-offset: 2px;
+    outline: 2px solid #005bb5;
+    outline-offset: 2px;
 }
 
 .search-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
 }
 
 .search-icon {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
 /* Header Styles */
 header {
-  @apply bg-white shadow-md; /* Background color and shadow */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    @apply bg-white shadow-md;
+    /* Background color and shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header a {
-  @apply text-gray-700 no-underline px-4 py-2; /* Link styles */
-  transition: background-color 0.3s ease, color 0.3s ease;
+    @apply text-gray-700 no-underline px-4 py-2;
+    /* Link styles */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header a:hover,
 header a:focus {
-  @apply bg-gray-200 text-gray-900; /* Hover and focus styles */
-  outline: none;
+    @apply bg-gray-200 text-gray-900;
+    /* Hover and focus styles */
+    outline: none;
 }
 
 header .logo {
-  @apply text-xl font-bold; /* Logo styles */
+    @apply text-xl font-bold;
+    /* Logo styles */
 }
 
 /* Main Body Base Styles */
 html,
 body {
-  flex: 1 0 auto;
-  position: flex;
-  min-height: 100vh; /* Ensure content takes up at least viewport height */
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+    flex: 1 0 auto;
+    position: flex;
+    min-height: 100vh;
+    /* Ensure content takes up at least viewport height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-  @apply flex flex-col min-h-screen; /* Flex column layout and minimum height of the screen */
+    @apply flex flex-col min-h-screen;
+    /* Flex column layout and minimum height of the screen */
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-  @apply flex-grow; /* Grow to fill the remaining space */
+    @apply flex-grow;
+    /* Grow to fill the remaining space */
 }
 
 footer {
-  /* Styling for footer (e.g., background color, text) */
-  flex: 0 0 auto;
+    /* Styling for footer (e.g., background color, text) */
+    flex: 0 0 auto;
 }
 
 /* Container for body content */
 .image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - 60px); /* Set height to be viewport minus nav */
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 60px);
+    /* Set height to be viewport minus nav */
+    padding: 10px;
 }
 
 /* Row for body content */
 .row {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
 }
 
 /* Medium screen breakpoint: 640px */
 @media (min-width: 640px) {
-  @layer components {
-    .nav-container {
-      @apply px-6; /* Increased horizontal padding */
-      height: 70px;
+    @layer components {
+        .nav-container {
+            @apply px-6;
+            /* Increased horizontal padding */
+            height: 70px;
+        }
     }
-  }
 
-  .logo-container > img {
-    max-height: 60px;
-    max-width: 250px;
-  }
+    .logo-container>img {
+        max-height: 60px;
+        max-width: 250px;
+    }
 }
 
 /* Tablet and desktop breakpoint: 768px */
 @media (min-width: 768px) {
-  @layer components {
-    .heading {
-      @apply text-3xl; /* Increase heading size */
+    @layer components {
+        .heading {
+            @apply text-3xl;
+            /* Increase heading size */
+        }
+
+        .button {
+            @apply text-base;
+            /* Increase button text size */
+        }
+
+        .hamburger {
+            @apply hidden;
+            /* Hide hamburger on larger screens */
+            font-size: 32px;
+        }
+
+        /* Larger Screen Navbar */
+        .navbar {
+            @apply flex flex-row items-center justify-start shadow-none p-0;
+            /* Horizontal flex and no shadow */
+            position: flex;
+            top: auto;
+            box-shadow: none;
+            max-height: none;
+            /* Ensure menu content is visible */
+            overflow: visible;
+            /* Ensure that no overflow is hidden */
+        }
+
+        /* Navigation list container on large screens */
+        .navbar ul {
+            @apply flex flex-row justify-evenly w-full;
+            /* Display links in a row */
+        }
+
+        /* List items on large screens */
+        .navbar li {
+            @apply mr-2;
+            /* Spacing between menu items */
+        }
+
+        /* Links on large screens */
+        .navbar a {
+            @apply text-black;
+            /* Set text color */
+            max-height: none;
+            /* Ensure full visibility */
+        }
+
+        .nav-container {
+            position: flex;
+            /* Default position for mobile */
+            z-index: 10;
+            /* Ensure the nav is above other content */
+            width: 100%;
+            background-color: white;
+            /* Optional: Set a background color */
+        }
     }
 
-    .button {
-      @apply text-base; /* Increase button text size */
+    .logo-container>img {
+        max-height: 67px;
+        max-width: 300px;
     }
 
-    .hamburger {
-      @apply hidden; /* Hide hamburger on larger screens */
-      font-size: 32px;
+    .search-icon {
+        width: 28px;
+        height: 28px;
     }
 
-    /* Larger Screen Navbar */
-    .navbar {
-      @apply flex flex-row items-center justify-start shadow-none p-0; /* Horizontal flex and no shadow */
-      position: flex;
-      top: auto;
-      box-shadow: none;
-      max-height: none; /* Ensure menu content is visible */
-      overflow: visible; /* Ensure that no overflow is hidden */
+    .image-container {
+        min-height: calc(100vh - 70px);
     }
 
-    /* Navigation list container on large screens */
-    .navbar ul {
-      @apply flex flex-row justify-evenly w-full;   /* Display links in a row */
+    header {
+        @apply px-8;
+        /* Increased padding for larger screens */
     }
 
-    /* List items on large screens */
-    .navbar li {
-      @apply mr-2; /* Spacing between menu items */
+    .link-button {
+        @apply text-base;
+        /* Larger text size for larger screens */
     }
-
-    /* Links on large screens */
-    .navbar a {
-      @apply text-black; /* Set text color */
-      max-height: none; /* Ensure full visibility */
-    }
-
-    .nav-container {
-      position: flex; /* Default position for mobile */
-      z-index: 10; /* Ensure the nav is above other content */
-      width: 100%;
-      background-color: white; /* Optional: Set a background color */
-    }
-  }
-
-  .logo-container > img {
-    max-height: 67px;
-    max-width: 300px;
-  }
-
-  .search-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .image-container {
-    min-height: calc(100vh - 70px);
-  }
-
-  header {
-    @apply px-8; /* Increased padding for larger screens */
-  }
-
-  .link-button {
-    @apply text-base; /* Larger text size for larger screens */
-  }
 }
 
 /* Large screen breakpoint: 1024px */
 @media (min-width: 1024px) {
-  @layer components {
-    .nav-container {
-      @apply px-8; /* Increase padding */
-      max-width: 1024px; /* max width for nav */
-      height: 80px; /* maintain same height */
-      padding: 0.5rem 2rem; /* keep padding the same */
+    @layer components {
+        .nav-container {
+            @apply px-8;
+            /* Increase padding */
+            max-width: 1024px;
+            /* max width for nav */
+            height: 80px;
+            /* maintain same height */
+            padding: 0.5rem 2rem;
+            /* keep padding the same */
+        }
     }
-  }
 
-  .logo-container > img {
-    max-height: 90px;
-    max-width: 350px;
-  }
+    .logo-container>img {
+        max-height: 90px;
+        max-width: 350px;
+    }
 
-  .search-icon {
-    width: 32px;
-    height: 32px;
-  }
+    .search-icon {
+        width: 32px;
+        height: 32px;
+    }
 
-  .hamburger {
-    font-size: 36px;
-  }
+    .hamburger {
+        font-size: 36px;
+    }
 
-  .image-container {
-    min-height: calc(100vh - 80px);
-  }
+    .image-container {
+        min-height: calc(100vh - 80px);
+    }
 }
 
 /* Responsive Navbar: Mobile only styling for navbar and hamburger */
 /* --- Small Screen Breakpoint (max-width: 767px) --- */
 @media (max-width: 767px) {
-  @layer components {
-    .navbar {
-      @apply w-full bg-white border-t border-gray-300 z-10 absolute left-0 right-0; /* Absolute position to stick to top */
-      top: 100%; /* Positioned right below the nav container */
-      overflow: hidden; /*ensure the transition will work with the max-height properties */
-    }
+    @layer components {
+        .navbar {
+            @apply w-full bg-white border-t border-gray-300 z-10 absolute left-0 right-0;
+            /* Absolute position to stick to top */
+            top: 100%;
+            /* Positioned right below the nav container */
+            overflow: hidden;
+            /*ensure the transition will work with the max-height properties */
+        }
 
-    .navbar.active {
-      @apply flex; /* Show when toggled on*/
-      overflow: visible; /* set to visible to not overflow on transition */
-    }
+        .navbar.active {
+            @apply flex;
+            /* Show when toggled on*/
+            overflow: visible;
+            /* set to visible to not overflow on transition */
+        }
 
-    .navbar ul {
-      @apply flex flex-row;
-    }
+        .navbar ul {
+            @apply flex flex-row;
+        }
 
-    .navbar li {
-      @apply mb-2; /* Space out items in mobile */
-    }
+        .navbar li {
+            @apply mb-2;
+            /* Space out items in mobile */
+        }
 
-    .hamburger {
-      @apply inline-block self-end pr-4; /* Hamburger visibility and position */
+        .hamburger {
+            @apply inline-block self-end pr-4;
+            /* Hamburger visibility and position */
+        }
     }
-  }
 }
 
 /* Specific Header Styles for Services Page */
 .services-header {
-  @apply bg-white shadow-md; /* Background color and shadow */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    @apply bg-white shadow-md;
+    /* Background color and shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .services-header a {
-  @apply text-gray-700 no-underline px-4 py-2; /* Link styles */
-  transition: background-color 0.3s ease, color 0.3s ease;
+    @apply text-gray-700 no-underline px-4 py-2;
+    /* Link styles */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .services-header a:hover,
 .services-header a:focus {
-  @apply bg-gray-200 text-gray-900; /* Hover and focus styles */
-  outline: none;
+    @apply bg-gray-200 text-gray-900;
+    /* Hover and focus styles */
+    outline: none;
 }
 
 .services-header .logo {
-  @apply text-xl font-bold; /* Logo styles */
+    @apply text-xl font-bold;
+    /* Logo styles */
 }
 
 /* Specific Heading Styles for Services Page */
 .services-heading {
-  @apply text-2xl font-bold mb-4; /* Heading styles */
+    @apply text-2xl font-bold mb-4;
+    /* Heading styles */
 }
 
 /* Link Button Styles */
 .link-button {
-  @apply inline-block px-4 py-2 bg-blue-500 text-white rounded; /* Base styles */
-  transition: background-color 0.3s ease, transform 0.3s ease;
+    @apply inline-block px-4 py-2 bg-blue-500 text-white rounded;
+    /* Base styles */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .link-button:hover,
 .link-button:focus {
-  @apply bg-blue-700; /* Hover and focus styles */
-  transform: scale(1.05); /* Slightly enlarge on hover/focus */
-  outline: none;
+    @apply bg-blue-700;
+    /* Hover and focus styles */
+    transform: scale(1.05);
+    /* Slightly enlarge on hover/focus */
+    outline: none;
 }
 
 .link-button:active {
-  @apply bg-blue-800; /* Active state */
-  transform: scale(0.95); /* Slightly shrink on active */
+    @apply bg-blue-800;
+    /* Active state */
+    transform: scale(0.95);
+    /* Slightly shrink on active */
 }
 
 /* Responsive Styles */
 @media (min-width: 768px) {
-  .services-header {
-    @apply px-8; /* Increased padding for larger screens */
-  }
+    .services-header {
+        @apply px-8;
+        /* Increased padding for larger screens */
+    }
 
-  .link-button {
-    @apply text-base; /* Larger text size for larger screens */
-  }
+    .link-button {
+        @apply text-base;
+        /* Larger text size for larger screens */
+    }
 }

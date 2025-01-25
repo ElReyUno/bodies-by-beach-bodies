@@ -30,15 +30,15 @@ const Access = () => {
 
     return (
         <Layout>
-            <h1 className="text-2xl font-bold mb-4">Physical Therapy/Booking</h1>
+            <h1 className="text-2xl font-bold mb-4">24/7 Access</h1>
             <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-2">About Our Physical Therapy Services</h2>
+                <h2 className="text-xl font-semibold mb-2">About Our Twenty-Four Hour Seven Days Per Week Access</h2>
                 <p className="mb-4">
-                    Our physical therapy services are designed to help you recover from injuries, manage pain, and improve your overall physical health. Our experienced therapists use a variety of techniques, including manual therapy, exercise, and education, to create personalized treatment plans tailored to your specific needs. Whether you're recovering from surgery, dealing with chronic pain, or looking to improve your mobility, our physical therapy program can help you achieve your goals.
+                The gym that never sleeps. Come experience the power of 24/7 fitness.
                 </p>
                 <h2 className="text-xl font-semibold mb-2">Sign Up Today</h2>
                 <p>
-                    Ready to start your journey to better health? Fill out the form below to book your physical therapy appointment. We look forward to helping you achieve your health and wellness goals.
+                When everyone else is sleeping, you can be working out. Discover 24/7 gym access. We're not your average gym. We're here for you, always. Welcome to 24/7 fitness by Beach Bodies By Bodies.
                 </p>
             </div>
             <div>

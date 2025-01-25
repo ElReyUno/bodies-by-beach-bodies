@@ -42,6 +42,8 @@ function Home() {
         }
     }, []);
 
+
+
     return (
         <div className="flex flex-col items-center justify-center w-full pt-1 pb-1 md:pt-24 md:pb-1 px-4 md:px-6">
             <section className="hero-section flex flex-col items-center justify-center w-full py-2 md:py-4 px-4 md:px-6">
@@ -58,12 +60,12 @@ function Home() {
                     <div className="w-1/2 image-container">
                         <div className="row">
                             <select value={selectedService} onChange={handleServiceChange}>
-                                <option value="/Services">Services</option>
+                                <option value="/services">Services</option>
                                 <optgroup label="Services Available:">
                                     <option value="/services/fitness">Fitness</option>
-                                    <option value="/services/fitness/bootcamp"> -- Boot Camp</option>
+                                    <option value="/services/fitness/camp"> -- Boot Camp</option>
                                     <option value="/services/fitness/classes"> -- Indoor Fitness Classes</option>
-                                    <option value="/services/fitness/personal-training"> -- Personal Training</option>
+                                    <option value="/services/fitness/training"> -- Personal Training</option>
                                     <option value="/services/physical-therapy">Physical Therapy</option>
                                     <option value="/services/spa">Spa services</option>
                                     <option value="/services/boxing">Boxing Lessons</option>
@@ -71,7 +73,7 @@ function Home() {
                             </select>
                         </div>
                         <div className="row">
-                            <select>
+                            <select value={selectedFacility} onChange={handleServiceChange}>
                                 <option value="/facilities">Facilities & Resources</option>
                                 <optgroup label="Facilities & Resources:">
                                     <option value="/facilities/access/">24/7 Access</option>
@@ -80,12 +82,12 @@ function Home() {
                             </select>
                         </div>
                         <div className="row">
-                            <select>
-                                <option value="/Partnerships">Partnerships</option>
+                            <select value={selectedPartnership} onChange={handleServiceChange}>
+                                <option value="/partnerships">Partnerships</option>
                                 <optgroup label="Partnerships:">
-                                    <option value="/Testimonials">Testimonials Component</option>
-                                    <option value="/Blog">Blog Component</option>
-                                    <option value="/Contact">Contact</option>
+                                    <option value="/partnerships/testimonials">Testimonials</option>
+                                    <option value="/partnerships/blog">Blog</option>
+                                    <option value="/contact">Contact</option>
                                 </optgroup>
                             </select>
                         </div>
