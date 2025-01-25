@@ -1,15 +1,15 @@
 /* Tailwind Directives */
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 /* Base styles (mobile-first) */
 @layer components {
   /* Container for content */
   .container {
-    @apply flex flex-col items-center p-4; /* Vertically align items and add padding */
+    @apply flex flex-col items-center justify-center flex-grow; /* Vertically align items and grow to fill space */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
   }
 
   /* Generic heading */
@@ -147,11 +147,32 @@
   height: 24px;
 }
 
+/* Header Styles */
 header {
-  /* Styling for header (e.g., background color, height) */
+  @apply bg-white shadow-md; /* Background color and shadow */
   position: sticky;
   top: 0;
-  flex: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  @apply text-gray-700 no-underline px-4 py-2; /* Link styles */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header a:hover,
+header a:focus {
+  @apply bg-gray-200 text-gray-900; /* Hover and focus styles */
+  outline: none;
+}
+
+header .logo {
+  @apply text-xl font-bold; /* Logo styles */
 }
 
 /* Main Body Base Styles */
@@ -161,6 +182,24 @@ body {
   position: flex;
   min-height: 100vh; /* Ensure content takes up at least viewport height */
   overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  @apply flex flex-col min-h-screen; /* Flex column layout and minimum height of the screen */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  @apply flex-grow; /* Grow to fill the remaining space */
 }
 
 footer {
@@ -264,7 +303,16 @@ footer {
   .image-container {
     min-height: calc(100vh - 70px);
   }
+
+  header {
+    @apply px-8; /* Increased padding for larger screens */
+  }
+
+  .link-button {
+    @apply text-base; /* Larger text size for larger screens */
+  }
 }
+
 /* Large screen breakpoint: 1024px */
 @media (min-width: 1024px) {
   @layer components {
@@ -321,5 +369,67 @@ footer {
     .hamburger {
       @apply inline-block self-end pr-4; /* Hamburger visibility and position */
     }
+  }
+}
+
+/* Specific Header Styles for Services Page */
+.services-header {
+  @apply bg-white shadow-md; /* Background color and shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-header a {
+  @apply text-gray-700 no-underline px-4 py-2; /* Link styles */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.services-header a:hover,
+.services-header a:focus {
+  @apply bg-gray-200 text-gray-900; /* Hover and focus styles */
+  outline: none;
+}
+
+.services-header .logo {
+  @apply text-xl font-bold; /* Logo styles */
+}
+
+/* Specific Heading Styles for Services Page */
+.services-heading {
+  @apply text-2xl font-bold mb-4; /* Heading styles */
+}
+
+/* Link Button Styles */
+.link-button {
+  @apply inline-block px-4 py-2 bg-blue-500 text-white rounded; /* Base styles */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.link-button:hover,
+.link-button:focus {
+  @apply bg-blue-700; /* Hover and focus styles */
+  transform: scale(1.05); /* Slightly enlarge on hover/focus */
+  outline: none;
+}
+
+.link-button:active {
+  @apply bg-blue-800; /* Active state */
+  transform: scale(0.95); /* Slightly shrink on active */
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .services-header {
+    @apply px-8; /* Increased padding for larger screens */
+  }
+
+  .link-button {
+    @apply text-base; /* Larger text size for larger screens */
   }
 }

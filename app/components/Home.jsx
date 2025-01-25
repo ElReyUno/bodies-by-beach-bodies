@@ -49,7 +49,7 @@ function Home() {
                 <h2 className="text-2xl">Transform Your Body & Mind</h2>
             </section>
 
-            <div className="flex-grow flex justify-center items-center bg-cover bg-fixed bg-center w-full"
+            <div className="flex-grow flex justify-center items-center bg-cover bg-fixed bg-center w-full" role="main" aria-label="Main Content"
                 style={{ backgroundImage: `url('/img/main-background.webp')` }}>  {/* Second row - remaining height*/}
                 <div className="container mx-auto px-4 py-12 text-center flex">
                     <div className="w-1/4">
