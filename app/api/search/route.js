@@ -1,11 +1,32 @@
-import { searchDatabase } from '../../lib/search';
+import connectDB from '../../utils/db';
+import mongoose from 'mongoose';
+import { NextResponse } from 'next/server';
+import Post from '../../../models/Post';
 
-export default async function handler(req, res) {
-    const { q } = req.query;
-    if (!q) {
-        return res.status(400).json({ error: 'Query parameter is required' });
+// Use .env variable
+mongoose.connect(process.env.MONGODB_URI);
+
+export async function GET(request) { // export the GET method
+    const { searchParams } = new URL(request.url)
+    const query = searchParams.get("query")
+    const page = parseInt(searchParams.get("page") || 1);
+    const limit = parseInt(searchParams.get("limit") || 10);
+    const skip = (page - 1) * limit;
+    try {
+        const results = await Post.find({
+            $text: { $search: query },
+        })
+            .skip(parseInt(skip))
+            .limit(parseInt(limit));
+
+
+        const totalResults = await Post.countDocuments({ $text: { $search: query } })
+        const totalPages = Math.ceil(totalResults / limit)
+
+        return NextResponse.json({ results, totalPages }, { status: 200 });
+
+    } catch (error) {
+        return NextResponse.json({ error: 'Error with search' }, { status: 500 });
     }
 
-    const results = await searchDatabase(q);
-    res.status(200).json(results);
 }

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const uri = process.env.MONGODB_URI;    // Set MongoDB URI in .env
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 export async function searchDatabase(query) {
     try {

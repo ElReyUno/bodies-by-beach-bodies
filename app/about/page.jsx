@@ -25,26 +25,31 @@ const About = ({ embedded }) => {
                             />
                         </div>
                         <div className="md:w-1/2 flex flex-col">
+                        <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
                             <h1 className="text-3xl md:text-4xl font-bold mb-4">
                                 Experience Holistic Wellness Globally. <br />
                                 <span className='text-blue-500'>Bodies by Beach Bodies</span> & <span className="text-orange-500">Zebo Physical Therapy:</span> <br />
                                 Your Partner in Transformation.
                             </h1>
-                            <p className="text-gray-700 mb-6">
-                                "GREETNIGS!"
-                                Welcome to Bodies by Beach Bodies! We're excited to offer you a unique fusion of fitness and wellness,
-                                designed to help you reach your goals, no matter where you are. With over a decade of global
-                                experience and cutting-edge techniques, we're committed to transforming lives. Get ready to feel
-                                leaner, stronger, and more energized than ever before. Our mission is to deliver fast, science-backed
-                                results, supported by expert training and therapeutic care. Whether you're seeking increased
-                                strength, flexibility, or overall well-being, we provide the tools and personalized guidance you
-                                need, both in-person and virtually. Join us and let's achieve your fitness goals together!
-                            </p>
+                            </div>
+                            <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
+                                <p className="text-gray-700 mb-6">
+                                    "GREETNIGS!"
+                                    Welcome to Bodies by Beach Bodies! We're excited to offer you a unique fusion of fitness and wellness,
+                                    designed to help you reach your goals, no matter where you are. With over a decade of global
+                                    experience and cutting-edge techniques, we're committed to transforming lives. Get ready to feel
+                                    leaner, stronger, and more energized than ever before. Our mission is to deliver fast, science-backed
+                                    results, supported by expert training and therapeutic care. Whether you're seeking increased
+                                    strength, flexibility, or overall well-being, we provide the tools and personalized guidance you
+                                    need, both in-person and virtually. Join us and let's achieve your fitness goals together!
+                                </p>
+                            </div>
                         </div>
                     </div>
 
                 </section>
                 {/* Main Content */}
+                <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
                 <section className="mb-8 content">
                     <h1>About Us</h1>
                     <h2 title="Our Mission & Philosophy" />
@@ -125,6 +130,7 @@ const About = ({ embedded }) => {
                         </Link>
                     </div>
                 </section>
+                </div>
                 <section className="bg-gray-100 p-4 rounded mt-4 text-center">
                     <p className="text-gray-700 text-sm">
                         NOTICE:

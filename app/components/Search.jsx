@@ -1,37 +1,65 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Search = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
-    const [notFound, setNotFound] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1)
     const router = useRouter();
+
+    // Debouncing function so that we don't call API on every key stroke
+    function debounce(func, timeout = 300) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => { func.apply(this, args); }, timeout)
+        }
+    }
+
+    const handleSearch = debounce(async (term) => {
+        setIsLoading(true)
+        try {
+            const response = await fetch(`/app/api/search?query=${term}&page=${page}`);
+            if (response.ok) {
+                const data = await response.json();
+                setResults(data.results)
+                setTotalPages(data.totalPages);
+            } else {
+                setResults([])
+                setTotalPages(1)
+            }
+        } catch (error) {
+            console.error("Error with fetch: ", error)
+            setResults([])
+            setTotalPages(1)
+        } finally {
+            setIsLoading(false)
+        }
+    });
+
+    useEffect(() => {
+        if (query) {
+            handleSearch(query)
+        }
+    }, [query, page]);
+
+    function handlePageChange(newPage) {
+        setPage(newPage)
+    }
+
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
     };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if (query.trim()) {
-            const res = await fetch(`/api/search?q=${query}`);
-            if (res.ok) {
-                const data = await res.json();
-                if (data.length > 0) {
-                    setResults(data);
-                    setNotFound(false);
-                } else {
-                    setResults([]);
-                    setNotFound(true);
-                }
-            } else {
-                setResults([]);
-                setNotFound(true);
-            }
-        }
+        // we don't need the logic here because we are handling it with use effect
     };
+
 
     return (
         <div>
@@ -60,12 +88,32 @@ const Search = () => {
                     </svg>
                 </button>
             </form>
-            {notFound && <p>No results found</p>}
-            <ul>
-                {results.map((result, index) => (
-                    <li key={index}>{result.title}</li>
-                ))}
-            </ul>
+            {isLoading && <div>Loading...</div>}
+
+            {results.length > 0 ? (
+                <>
+                    <ul>
+                        {results.map((result, index) => (
+                            <li key={index}>{result.title}</li>
+                        ))}
+                    </ul>
+
+                    {totalPages > 1 && (
+                        <div>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <button
+                                    key={index + 1}
+                                    onClick={() => handlePageChange(index + 1)}
+                                    disabled={index + 1 === page}
+                                >
+                                    {index + 1}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+
+                </>
+            ) : (query ? <div>No Results</div> : null)}
         </div>
     );
 };

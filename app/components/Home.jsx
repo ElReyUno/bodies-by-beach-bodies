@@ -52,14 +52,15 @@ function Home() {
             </section>
 
             <div className="flex-grow flex justify-center items-center bg-cover bg-fixed bg-center w-full" role="main" aria-label="Main Content"
-                style={{ backgroundImage: `url('/img/main-background.webp')` }}>  {/* Second row - remaining height*/}
+                style={{ backgroundImage: `url('/img/main-background.webp')` }}>
                 <div className="container mx-auto px-4 py-12 text-center flex">
                     <div className="w-1/4">
                         {/* Left content */}
                     </div>
                     <div className="w-1/2 image-container">
+                    <div className={"bg-white bg-opacity-80 backdrop-blur-md p-1 rounded-lg shadow-md max-w-lg mx-auto"}>
                         <div className="row">
-                            <select value={selectedService} onChange={handleServiceChange}>
+                            <select className="text-center block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value={selectedService} onChange={handleServiceChange}>
                                 <option value="/services">Services</option>
                                 <optgroup label="Services Available:">
                                     <option value="/services/fitness">Fitness</option>
@@ -73,7 +74,7 @@ function Home() {
                             </select>
                         </div>
                         <div className="row">
-                            <select value={selectedFacility} onChange={handleServiceChange}>
+                            <select className="text-center block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value={selectedFacility} onChange={handleServiceChange}>
                                 <option value="/facilities">Facilities & Resources</option>
                                 <optgroup label="Facilities & Resources:">
                                     <option value="/facilities/access/">24/7 Access</option>
@@ -82,7 +83,7 @@ function Home() {
                             </select>
                         </div>
                         <div className="row">
-                            <select value={selectedPartnership} onChange={handleServiceChange}>
+                            <select className="text-center block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value={selectedPartnership} onChange={handleServiceChange}>
                                 <option value="/partnerships">Partnerships</option>
                                 <optgroup label="Partnerships:">
                                     <option value="/partnerships/testimonials">Testimonials</option>
@@ -91,6 +92,7 @@ function Home() {
                                 </optgroup>
                             </select>
                         </div>
+                    </div>
                         <div className="row">
                             <About embedded={true} />
                         </div>
