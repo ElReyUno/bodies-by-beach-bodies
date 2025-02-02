@@ -64,11 +64,11 @@ function Nav() {
     }, [handleBlur]);
 
     return (
-        <nav className="relative" role="navigation" aria-label="Main Navigation">
+        <nav className="relative z-50" role="navigation" aria-label="Main Navigation">
             <div className="flex justify-between items-center p-4 md:p-6">
                 {/* Hamburger only on small screens */}
                 <div
-                    className="cursor-pointer"  // Hide on medium and larger screens
+                    className="cursor-pointer md:hidden z-50"  // Hide on medium and larger screens
                     onClick={toggleNavbar}
                     aria-label={isNavOpen ? "close navigation menu" : "open navigation menu"}
                     ref={hamburgerRef}
@@ -113,18 +113,18 @@ function Nav() {
             {/* Navigation Menu Container */}
             <div
                 ref={menuRef}
-                className={`navbar ${isNavOpen ? 'active' : 'hidden'} md:flex md:justify-center md:items-center md:pt-2 md:pb-4`}
+                className={`navbar ${isNavOpen ? 'active' : 'hidden'} md:flex md:justify-center md:items-center md:pt-2 md:pb-4 z-50`}
             >
-                <ul className="flex flex-col justify-evenly w-full" aria-label="Navigation Links">
-                    <li><Link href="/" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Home</Link></li>
-                    <li><Link href="/about" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>About</Link></li>
-                    <li><Link href="/services" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Services</Link></li>
-                    <li><Link href="/facilities" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Facilities & Resources</Link></li>
-                    <li><Link href="/partnerships" className="navLink block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Partnerships</Link></li>
+                <ul className="flex flex-col justify-evenly w-full md:flex-row md:space-x-4" aria-label="Navigation Links">
+                    <li><Link href="/" className="block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Home</Link></li>
+                    <li><Link href="/about" className="block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>About</Link></li>
+                    <li><Link href="/services" className="block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Services</Link></li>
+                    <li><Link href="/facilities" className="block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Facilities & Resources</Link></li>
+                    <li><Link href="/partnerships" className="block p-2 hover:text-gray-600" tabIndex={isNavOpen ? 0 : -1} onClick={closeNavbar}>Partnerships</Link></li>
                 </ul>
             </div>
             {/* Overlay */}
-            {isNavOpen && (<div className="fixed inset-0 bg-black opacity-50 z-10 md:hidden" onClick={closeNavbar}></div>)}
+            {isNavOpen && (<div className="fixed inset-0 bg-black opacity-50 z-40 md:hidden" onClick={closeNavbar}></div>)}
         </nav>
     );
 }
