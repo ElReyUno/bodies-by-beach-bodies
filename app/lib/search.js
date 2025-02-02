@@ -1,37 +1,12 @@
-import { MongoClient } from 'mongodb';
-import fs from 'fs';
-import path from 'path';
-
-const uri = process.env.MONGODB_URI;    // Set MongoDB URI in .env
-const client = new MongoClient(uri);
+import pool from '../../lib/mariadb';
 
 export async function searchDatabase(query) {
+    let conn;
     try {
-        await client.connect();
-        const database = client.db('bbbb'); // Database name
-        const collection = database.collection('bbbbCollection'); // Replace with your collection name
-
-        const results = await collection.find({ $text: { $search: query } }).toArray();
+        conn = await pool.getConnection();
+        const results = await conn.query("SELECT * FROM your_table WHERE MATCH (title, content) AGAINST (? IN NATURAL LANGUAGE MODE)", [query]);
         return results;
     } finally {
-        await client.close();
+        if (conn) conn.release();
     }
 }
-
-async function populateDatabase() {
-    try {
-        await client.connect();
-        const database = client.db('bbbb'); // Database name
-        const collection = database.collection('bbbbCollection'); // Collection name
-
-        const dataPath = path.join(__dirname, 'data.json');
-        const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-
-        await collection.insertMany(data);
-        console.log('Database populated successfully');
-    } finally {
-        await client.close();
-    }
-}
-
-populateDatabase().catch(console.error);

@@ -1,10 +1,17 @@
-export async function GET(request) {
-    return new Response('Contact Page', {
-        status: 200,
-        headers: {
-            'Content-Type': 'text/plain',
-        },
-    });
+import pool from '../../../lib/mariadb';
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const testimonials = await conn.query("SELECT id, client_name AS title, testimonial AS content, date FROM testimonials ORDER BY date DESC");
+        return NextResponse.json(testimonials, { status: 200 });
+    } catch (error) {
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    } finally {
+        if (conn) conn.release();
+    }
 }
 
 export async function POST(request) {

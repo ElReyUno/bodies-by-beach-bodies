@@ -1,32 +1,46 @@
-import connectDB from '../../utils/db';
-import mongoose from 'mongoose';
+import pool from '../../lib/mariadb';
 import { NextResponse } from 'next/server';
-import Post from '../../../models/Post';
 
-// Use .env variable
-mongoose.connect(process.env.MONGODB_URI);
-
-export async function GET(request) { // export the GET method
-    const { searchParams } = new URL(request.url)
-    const query = searchParams.get("query")
+export async function GET(request) {
+    const { searchParams } = new URL(request.url);
+    const query = searchParams.get("query");
     const page = parseInt(searchParams.get("page") || 1);
     const limit = parseInt(searchParams.get("limit") || 10);
     const skip = (page - 1) * limit;
+
+    let conn;
     try {
-        const results = await Post.find({
-            $text: { $search: query },
-        })
-            .skip(parseInt(skip))
-            .limit(parseInt(limit));
+        conn = await pool.getConnection();
+        
+        // Search in testimonials
+        const testimonials = await conn.query(
+            "SELECT id, client_name AS title, testimonial AS content, date FROM testimonials WHERE MATCH (testimonial) AGAINST (? IN NATURAL LANGUAGE MODE) LIMIT ? OFFSET ?",
+            [query, limit, skip]
+        );
 
+        // Search in services
+        const services = await conn.query(
+            "SELECT id, name AS title, description AS content, date FROM services WHERE MATCH (description) AGAINST (? IN NATURAL LANGUAGE MODE) LIMIT ? OFFSET ?",
+            [query, limit, skip]
+        );
 
-        const totalResults = await Post.countDocuments({ $text: { $search: query } })
-        const totalPages = Math.ceil(totalResults / limit)
+        // Search in articles
+        const articles = await conn.query(
+            "SELECT id, title, content, date FROM articles WHERE MATCH (content) AGAINST (? IN NATURAL LANGUAGE MODE) LIMIT ? OFFSET ?",
+            [query, limit, skip]
+        );
+
+        const results = [...testimonials, ...services, ...articles];
+
+        const totalResults = results.length;
+        const totalPages = Math.ceil(totalResults / limit);
 
         return NextResponse.json({ results, totalPages }, { status: 200 });
 
     } catch (error) {
-        return NextResponse.json({ error: 'Error with search' }, { status: 500 });
+        console.error('Error with search API:', error);
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    } finally {
+        if (conn) conn.release();
     }
-
 }

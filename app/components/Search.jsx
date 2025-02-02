@@ -5,61 +5,29 @@ import { useRouter } from 'next/navigation';
 
 const Search = () => {
     const [query, setQuery] = useState('');
-    const [results, setResults] = useState([]);
-    const [isLoading, setIsLoading] = useState(false)
-    const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1)
+    const [searchHistory, setSearchHistory] = useState([]);
     const router = useRouter();
 
-    // Debouncing function so that we don't call API on every key stroke
-    function debounce(func, timeout = 300) {
-        let timer;
-        return (...args) => {
-            clearTimeout(timer);
-            timer = setTimeout(() => { func.apply(this, args); }, timeout)
-        }
-    }
-
-    const handleSearch = debounce(async (term) => {
-        setIsLoading(true)
-        try {
-            const response = await fetch(`/app/api/search?query=${term}&page=${page}`);
-            if (response.ok) {
-                const data = await response.json();
-                setResults(data.results)
-                setTotalPages(data.totalPages);
-            } else {
-                setResults([])
-                setTotalPages(1)
-            }
-        } catch (error) {
-            console.error("Error with fetch: ", error)
-            setResults([])
-            setTotalPages(1)
-        } finally {
-            setIsLoading(false)
-        }
-    });
-
     useEffect(() => {
-        if (query) {
-            handleSearch(query)
+        const storedHistory = localStorage.getItem('searchHistory');
+        if (storedHistory) {
+            setSearchHistory(JSON.parse(storedHistory));
         }
-    }, [query, page]);
-
-    function handlePageChange(newPage) {
-        setPage(newPage)
-    }
-
+    }, []);
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // we don't need the logic here because we are handling it with use effect
+        if (query.trim() !== '') {
+            const updatedHistory = [query, ...searchHistory.slice(0, 4)]; // Limit to 5 items
+            setSearchHistory(updatedHistory);
+            localStorage.setItem('searchHistory', JSON.stringify(updatedHistory));
+            router.push(`/search/results?query=${query}`);
+        }
     };
-
 
     return (
         <div>
@@ -88,32 +56,16 @@ const Search = () => {
                     </svg>
                 </button>
             </form>
-            {isLoading && <div>Loading...</div>}
-
-            {results.length > 0 ? (
-                <>
+            {searchHistory.length > 0 && (
+                <div>
+                    <h3>Search History</h3>
                     <ul>
-                        {results.map((result, index) => (
-                            <li key={index}>{result.title}</li>
+                        {searchHistory.map((historyQuery, index) => (
+                            <li key={index}>{historyQuery}</li>
                         ))}
                     </ul>
-
-                    {totalPages > 1 && (
-                        <div>
-                            {Array.from({ length: totalPages }, (_, index) => (
-                                <button
-                                    key={index + 1}
-                                    onClick={() => handlePageChange(index + 1)}
-                                    disabled={index + 1 === page}
-                                >
-                                    {index + 1}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-
-                </>
-            ) : (query ? <div>No Results</div> : null)}
+                </div>
+            )}
         </div>
     );
 };
