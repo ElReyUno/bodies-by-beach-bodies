@@ -2,6 +2,8 @@
 
 This document outlines the development details for Bodies By Beach Bodies following best practices for a Single-Page Application (SPA) built with a modern JavaScript tool stack.
 
+To view the demo site please visit [Bodies By Beach Bodies]('https://elreyuno.github.io/bodies-by-beach-bodies/')
+
 ## Table of Contents
 
 *   [Project Overview](#project-overview)
