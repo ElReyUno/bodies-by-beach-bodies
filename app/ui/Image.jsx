@@ -13,7 +13,7 @@ function ImageComponent({
     ...props // Handle any other attributes
 }) {
     return (
-        <Image
+        <img
             src={src}
             alt={alt}
             width={width}

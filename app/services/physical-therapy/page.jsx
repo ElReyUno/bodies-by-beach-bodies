@@ -1,31 +1,22 @@
 "use client";
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import Layout from '../../components/Layout';
 
 const PhysicalTherapy = () => {
-    const router = useRouter();
-
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
 
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+        // Store the form data in localStorage
+        localStorage.setItem('physicalTherapyForm', JSON.stringify(data));
 
-        if (response.ok) {
-            alert("Thank You. We Will Be With You Soon.");
-            router.push('../partnerships');
-        } else {
-            alert("There was an error submitting the form.");
-        }
+        // Show a success message
+        alert("Thank You. We Will Be With You Soon.");
+
+        // Redirect to the partnerships page
+        window.location.href = '/bodies-by-beach-bodies/partnerships';
     };
 
     return (
@@ -62,6 +53,6 @@ const PhysicalTherapy = () => {
             </form>
         </Layout>
     );
-}
+};
 
 export default PhysicalTherapy;

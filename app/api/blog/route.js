@@ -1,3 +1,9 @@
+import pool from '../../lib/mariadb';
+import { NextResponse } from 'next/server';
+
+export const dynamic = "force-static";
+export const revalidate = 0;
+
 export async function GET(request) {
     return new Response('Blog Page', {
         status: 200,

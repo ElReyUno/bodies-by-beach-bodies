@@ -1,4 +1,7 @@
-import pool from '../../../lib/mariadb';
+export const dynamic = "force-static";
+export const revalidate = 0;
+
+import pool from '../../lib/mariadb';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

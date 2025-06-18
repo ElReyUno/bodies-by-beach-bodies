@@ -22,10 +22,10 @@ function Facilities() {
                     Take a look at some images of our facilities below. We take pride in offering a clean, welcoming, and well-maintained environment for all our members.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    <img src="/img/gym.webp" alt="Gym" className="w-full h-auto rounded-lg shadow-md" />
-                    <img src="/img/spa.webp" alt="Spa" className="w-full h-auto rounded-lg shadow-md" />
-                    <img src="/img/steam-room.webp" alt="Steam Room" className="w-full h-auto rounded-lg shadow-md" />
-                    <img src="/img/locker-room.webp" alt="Locker Room" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="/bodies-by-beach-bodies/img/gym.webp" alt="Gym" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="/bodies-by-beach-bodies/img/spa.webp" alt="Spa" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="/bodies-by-beach-bodies/img/steam-room.webp" alt="Steam Room" className="w-full h-auto rounded-lg shadow-md" />
+                    <img src="/bodies-by-beach-bodies/img/locker-room.webp" alt="Locker Room" className="w-full h-auto rounded-lg shadow-md" />
                 </div>
                 <p className="mt-4">
                     Learn more about our <Link href="/facilities/access" className="text-blue-500 hover:underline">24/7 Access</Link>.

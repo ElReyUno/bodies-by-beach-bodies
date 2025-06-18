@@ -12,20 +12,8 @@ const Access = () => {
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
 
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-            alert("Thank You. We Will Be With You Soon.");
-            router.push('../partnerships');
-        } else {
-            alert("There was an error submitting the form.");
-        }
+        // Instead of sending a POST request, redirect to the contact page
+        window.location.href = '/contact';
     };
 
     return (

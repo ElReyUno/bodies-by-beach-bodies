@@ -1,5 +1,47 @@
 # Bodies By Beach Bodies
 
+## React & Next.js
+
+This project is built using **React** for component-based UI development and **Next.js** for advanced routing, server-side rendering (SSR), and static site generation (SSG). Next.js enables both dynamic and static deployments, making it ideal for modern web applications and static hosting platforms like GitHub Pages.
+
+- **React**: Provides the foundation for building reusable UI components and managing state.
+- **Next.js**: Handles routing, SSR/SSG, and static export. For GitHub Pages, the site is exported as static HTML, CSS, and JS files using ~~`next export`~~ `next build`.
+
+### Static Export for GitHub Pages
+
+To deploy on GitHub Pages, use the following steps:
+
+1. **Build and Export**
+   ```bash
+   npm run build
+   ~~npm run export~~
+   ```
+   This generates a static `out/` directory with all HTML, JS, and assets.
+   
+   If your project is configured to export to `docs/`, use that folder instead of `out/` in the steps below.
+
+2. **Deploy**
+   - Copy the contents of the `out/` (or `docs/`) directory to your `gh-pages` or `feature/gh-pages` branch.
+   - Commit and push the changes.
+   - GitHub Pages should be configured to serve from the `/docs` folder or the root of the deployment branch.
+   - **All image and asset paths should be relative (e.g., `img/Logo.webp`) for static hosting.**
+
+3. **Test Locally**
+   To preview your static export locally before deploying:
+   ```bash
+   npx serve out
+   # or
+   npx serve docs
+   ```
+   Then visit the local URL shown in your terminal.
+
+4. **Limitations**
+   - Only static features are supported on GitHub Pages. API routes and server-side logic will not work.
+   - Use static data or mock APIs for demonstration purposes.
+   - All asset references (images, CSS, etc.) must use relative paths (e.g., `img/Logo.webp` not `/img/Logo.webp`).
+
+---
+
 This document outlines the development details for Bodies By Beach Bodies following best practices for a Single-Page Application (SPA) built with a modern JavaScript tool stack.
 
 ## Table of Contents
@@ -15,13 +57,15 @@ This document outlines the development details for Bodies By Beach Bodies follow
     *   [Visual Aids](#visual-aids)
         *   [Flowchart](#flowchart)
         *   [Wireframes](#wireframes)
-    *   [Mock-Up Creation](#mock-up-creation)
-        *   [Creating a Mock-up with HTML](#creating-a-mock-up-with-html)
+        *   [Mock-Up Creation](#mock-up-creation)
+        *   [Creating a Mock-Up with HTML](#creating-a-mock-up-with-html)
 *   [Project Structure](#project-structure)
     *   [HTML Components](#html-components)
+    *   [Document Object Model (DOM)](#document-object-model-dom)
     *   [Application Shell](#application-shell)
     *   [Route Based Components](#route-based-components)
     *   [UI Components](#ui-components)
+*   [Client-Side Storage (localStorage/sessionStorage)](#client-side-storage-localstorage-sessionstorage)
 *   [Development Workflow](#development-workflow)
 *   [Accessibility](#accessibility)
 *   [SEO](#seo)
@@ -29,6 +73,15 @@ This document outlines the development details for Bodies By Beach Bodies follow
 *   [Contributing](#contributing)
 *   [License](#license)
 *   [Getting Started](#getting-started)
+    *   [Learn More](#learn-more)
+    *   [Deploy on Vercel](#deploy-on-vercel)
+*   [About This Branch (`feature/gh-pages`)](#about-this-branch-featuregh-pages)
+*   [Build & Deployment Scripts](#build--deployment-scripts)
+*   [Additional Notes for GitHub Pages Deployment](#additional-notes-for-github-pages-deployment)
+*   [Troubleshooting GitHub Pages Deployment](#troubleshooting-github-pages-deployment)
+*   [Branch Management](#branch-management)
+*   [Contact Form Adaptation for GitHub Pages](#contact-form-adaptation-for-github-pages)
+*   [Retrieving Contact Form Data](#retrieving-contact-form-data)
 
 ## Project Overview
 
@@ -202,6 +255,25 @@ Components will be built using re-usable UI elements:
 
 *   Buttons, Text Fields, Lists, Dropdowns, Images, Videos.
 
+## Client-Side Storage (localStorage/sessionStorage)
+
+This project uses browser-based `localStorage` (and optionally `sessionStorage`) to save form submissions and user input. This approach is fully compatible with static hosting platforms like GitHub Pages, since all data is stored in the user's browser and no server-side code is required.
+
+- **How it works:**  
+  When a user submits a form (such as contact or sign-up forms), the data is serialized and saved to `localStorage` using JavaScript. This allows users to see their submissions or retrieve them later from the same browser/device.
+
+- **Limitations:**  
+  - Data is only available on the device/browser where it was submitted.
+  - Clearing browser storage will remove all saved data.
+  - Data is not shared or synced between users.
+
+- **Best Practices:**  
+  - All storage logic is implemented client-side in React components or custom hooks.
+  - Use unique keys for each form’s data in storage.
+  - Always validate and sanitize user input before saving.
+
+This method enables persistent, user-specific data storage even on static sites like those deployed to GitHub Pages.
+
 ## Development Workflow
 
 1.  **Setup:**
@@ -329,7 +401,97 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
    Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+---
+
+## About This Branch (`feature/gh-pages`)
+
+This branch is configured for static export and deployment to GitHub Pages for portfolio/demo purposes.
+
+- API routes and dynamic features are replaced or supplemented with static data for demonstration.
+- This allows the site to be hosted as a fully static site on GitHub Pages, which does not support server-side code.
+- To see the full-featured version with working API routes and backend integration, visit the [`main` branch](https://github.com/ElReyUno/bodies-by-beach-bodies/tree/main).
+- **Live Demo:** [https://elreyuno.github.io/bodies-by-beach-bodies/](https://elreyuno.github.io/bodies-by-beach-bodies/)
+
+**For local development or to run the dynamic version:**
+- Switch to the `main` branch and follow the instructions there.
+
+---
+
+## Build & Deployment Scripts
+
+- `npm run build` – Builds the production version of the app.
+- `npm run export` – Exports the app as static files for deployment.
+- `npm run predeploy` – Runs both build and export in sequence.
 
 ---
 
 Following this guide ensures a quality end result that is performant, accessible, and ready for future growth. User testing and continuous refinement are key to creating a great user experience.
+
+### Additional Notes for GitHub Pages Deployment
+
+- **All image and asset references in the codebase have been updated to use relative paths (e.g., `img/Logo.webp` instead of `/img/Logo.webp`).**
+- **Next.js `<Image />` components have been replaced with standard `<img>` tags for static export compatibility.**
+- **A `.nojekyll` file is included in the static export to ensure GitHub Pages serves all files, including those in folders starting with an underscore.**
+
+## Troubleshooting GitHub Pages Deployment
+
+- **404 Errors or Broken Images:**
+  - Ensure all images and assets exist in the correct location in the exported `docs/` (or `out/`) directory and are committed to the deployment branch.
+  - Double-check that asset paths in your code are relative (e.g., `img/Logo.webp`).
+  - GitHub Pages is case-sensitive; make sure filenames match exactly.
+- **Content-Type is text/html for images:**
+  - This means the file was not found and a 404 HTML page is being served. Check the file path and name.
+- **CSS or JS not loading:**
+  - Ensure the `_next/` static files are present in the export directory and referenced with the correct base path.
+- **Local testing does not match GitHub Pages:**
+  - Always test with a static server (e.g., `npx serve docs`) and visit the correct subdirectory (e.g., `/bodies-by-beach-bodies/`).
+
+## Branch Management
+
+- **main:** Full-featured development branch with API routes and dynamic features.
+- **feature/gh-pages:** Static export branch for GitHub Pages demo/portfolio. All static export and asset path changes are made here.
+
+## Contact Form Adaptation for GitHub Pages
+
+The contact form (`app/contact/page.jsx`) was adapted for static hosting (such as GitHub Pages) by removing all API/server calls and saving form submissions to the browser's local storage.
+
+- On submit, form data is saved to `localStorage` using `JSON.stringify()`.
+- When the page loads, if data exists in `localStorage`, the form is pre-filled.
+- No server or backend is required; all data is handled in the browser.
+
+**Example:**
+```js
+const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    localStorage.setItem('contactForm', JSON.stringify(data));
+    alert("Thank You. Your message has been saved locally.");
+    event.target.reset();
+};
+```
+
+## Retrieving Contact Form Data
+
+To view the locally stored contact form data:
+
+1. Open your site in your browser.
+2. Open Developer Tools (F12 or right-click → Inspect).
+3. Go to the **Application** (Chrome) or **Storage** (Firefox) tab.
+4. Under **Local Storage**, select your site’s URL.
+5. Find the key `contactForm`. The value is a JSON string.
+6. To view as an object, run in the console:
+   ```js
+   JSON.parse(localStorage.getItem('contactForm'))
+   ```
+
+---
+
+## Table of Contents
+
+- Overview
+- Getting Started
+- Development
+- Deployment
+- **Contact Form Adaptation for GitHub Pages**
+- **Retrieving Contact Form Data**

@@ -1,11 +1,7 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import collage from '../../public/img/collage.webp';
 import Button from '../ui/Button';
-import Layout from '../components/Layout';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
@@ -15,39 +11,40 @@ const About = ({ embedded }) => {
             {!embedded && <Nav />}
             <div className="container mx-auto p-4 md:p-8">
                 {/* Hero Section */}
-                <section className="relative mb-8">
-                    <div className='flex flex-col md:flex-row-reverse items-center'>
-                        <div className='md:w-1/2 md:pl-8'>
-                            <Image
-                                src={collage}
-                                alt="Montage of diverse individuals using various fitness facilities"
-                                className="rounded-lg shadow-md"
-                            />
-                        </div>
-                        <div className="md:w-1/2 flex flex-col">
-                        <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
-                            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                                Experience Holistic Wellness Globally. <br />
-                                <span className='text-blue-500'>Bodies by Beach Bodies</span> & <span className="text-orange-500">Zebo Physical Therapy:</span> <br />
-                                Your Partner in Transformation.
-                            </h1>
+                {!embedded && (
+                    <section className="relative mb-8">
+                        <div className='flex flex-col md:flex-row-reverse items-center'>
+                            <div className='md:w-1/2 md:pl-8'>
+                                <img
+                                    src='/bodies-by-beach-bodies/img/collage.webp'
+                                    alt="Montage of diverse individuals using various fitness facilities"
+                                    className="rounded-lg shadow-md"
+                                />
                             </div>
-                            <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
-                                <p className="text-gray-700 mb-6">
-                                    "GREETNIGS!"
-                                    Welcome to Bodies by Beach Bodies! We're excited to offer you a unique fusion of fitness and wellness,
-                                    designed to help you reach your goals, no matter where you are. With over a decade of global
-                                    experience and cutting-edge techniques, we're committed to transforming lives. Get ready to feel
-                                    leaner, stronger, and more energized than ever before. Our mission is to deliver fast, science-backed
-                                    results, supported by expert training and therapeutic care. Whether you're seeking increased
-                                    strength, flexibility, or overall well-being, we provide the tools and personalized guidance you
-                                    need, both in-person and virtually. Join us and let's achieve your fitness goals together!
-                                </p>
+                            <div className="md:w-1/2 flex flex-col">
+                                <div className="bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md">
+                                    <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                                        Experience Holistic Wellness Globally. <br />
+                                        <span className='text-blue-500'>Bodies by Beach Bodies</span> & <span className="text-orange-500">Zebo Physical Therapy:</span> <br />
+                                        Your Partner in Transformation.
+                                    </h1>
+                                </div>
+                                <div className="bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md">
+                                    <p className="text-gray-700 mb-6">
+                                        "GREETNIGS!"
+                                        Welcome to Bodies by Beach Bodies! We're excited to offer you a unique fusion of fitness and wellness,
+                                        designed to help you reach your goals, no matter where you are. With over a decade of global
+                                        experience and cutting-edge techniques, we're committed to transforming lives. Get ready to feel
+                                        leaner, stronger, and more energized than ever before. Our mission is to deliver fast, science-backed
+                                        results, supported by expert training and therapeutic care. Whether you're seeking increased
+                                        strength, flexibility, or overall well-being, we provide the tools and personalized guidance you
+                                        need, both in-person and virtually. Join us and let's achieve your fitness goals together!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                </section>
+                    </section>
+                )}
                 {/* Main Content */}
                 <div className={embedded ? "bg-white bg-opacity-80 backdrop-blur-md p-4 rounded-lg shadow-md" : ""}>
                 <section className="mb-8 content">

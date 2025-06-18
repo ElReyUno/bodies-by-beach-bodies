@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 0;
+
 export async function GET(request) {
     return new Response('Contact Page', {
         status: 200,

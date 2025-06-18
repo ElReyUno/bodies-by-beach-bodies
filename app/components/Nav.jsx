@@ -2,9 +2,7 @@
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { HiMenu, HiX } from 'react-icons/hi';
-import cwebpLogo from '../../public/img/Logo.webp';
 import Search from './Search';
 
 function Nav() {
@@ -77,11 +75,12 @@ function Nav() {
                     {isNavOpen ? <HiX className="text-3xl sm:text-4xl" /> : <HiMenu className="text-3xl sm:text-4xl" />}
                 </div>
                 <Link href="/" className="logo-container focus:outline-none" aria-label="Go to home page">
-                    <Image
-                        src={cwebpLogo}
+                    <img
+                        src="/bodies-by-beach-bodies/img/Logo.webp"
                         alt="BBBB Logo"
                         className="mx-auto"
-                        priority
+                        loading="eager"
+                        style={{ width: 'auto', height: 'auto' }}
                     />
                 </Link>
                 <button

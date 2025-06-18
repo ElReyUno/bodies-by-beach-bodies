@@ -12,6 +12,12 @@ const Spa = () => {
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
 
+        // Storing an object
+        localStorage.setItem('contactForm', JSON.stringify(data));
+
+        // Retrieving the object
+        const saved = JSON.parse(localStorage.getItem('contactForm'));
+
         const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {

@@ -2,28 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import mainBackground from '../../public/img/main-background.webp'
 import About from '../about/page';
-
-// COMMENTED OUT UNTIL COMPONENTS ARE IMPLEMENTED AND UNCOMMENTED
-// import Contact from '../api/contact/route.js';
-// import services from './services';
-// import Fitness from './services/Fitness'
-// import Bootcamp from './services/Fitness/Bootcamp';
-// import IndoorClasses from './services/Fitness/IndoorClasses';
-// import PersonalTraining from './services/Fitness/PersonalTraining';
-// import OnlineCoaching from './services/Fitness/OnlineCoaching';
-// import Access247 from './services/Fitness/Access247';
-// import PhysicalTherapy from './services/PhysicalTherapy';
-// import Spa from './services/Spa';
-// import Boxing from './services/Boxing';
-// import Facilities from './Facilities';
-// import Testimonials from './Testimonials';
-// import Blog from './Blog';
-// import Partnerships from './Partnerships';
-
 
 function Home() {
     const router = useRouter();
@@ -51,8 +30,12 @@ function Home() {
                 <h2 className="text-2xl">Transform Your Body & Mind</h2>
             </section>
 
-            <div className="flex-grow flex justify-center items-center bg-cover bg-fixed bg-center w-full" role="main" aria-label="Main Content"
-                style={{ backgroundImage: `url('/img/main-background.webp')` }}>
+            <div
+  className="flex-grow flex justify-center items-center bg-cover bg-fixed bg-center w-full"
+  role="main"
+  aria-label="Main Content"
+  style={{ backgroundImage: "url('/bodies-by-beach-bodies/img/main-background.webp')" }}
+>
                 <div className="container mx-auto px-4 py-12 text-center flex">
                     <div className="w-1/4">
                         {/* Left content */}
